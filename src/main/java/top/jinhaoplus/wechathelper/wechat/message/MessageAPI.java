@@ -3,7 +3,7 @@ package top.jinhaoplus.wechathelper.wechat.message;
 
 import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
-import top.jinhaoplus.wechathelper.wechat.api.response.ErrorResponse;
+import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.message.models.template.Industry;
 import top.jinhaoplus.wechathelper.wechat.message.models.template.IndustrySetRequest;
 import top.jinhaoplus.wechathelper.wechat.message.models.template.TemplateDeleteRequest;
@@ -25,10 +25,10 @@ public class MessageAPI extends ServiceAPI {
      * @return
      * @throws IOException
      */
-    public static ErrorResponse setIndustry(String accessToken, Industry primaryIndustry, Industry secondaryIndustry) throws IOException {
+    public static APIResponse setIndustry(String accessToken, Industry primaryIndustry, Industry secondaryIndustry) throws IOException {
         String url = formatUrl(wechatProperties.getProperty("url.message.setindustry"), new String[]{accessToken});
         IndustrySetRequest request = new IndustrySetRequest(primaryIndustry.getIndustryCode(), secondaryIndustry.getIndustryCode());
-        ErrorResponse response = invokeAPI(url, ApiMethod.POST, ErrorResponse.class, JsonUtil.bean2str(request));
+        APIResponse response = invokeAPI(url, ApiMethod.POST, APIResponse.class, JsonUtil.bean2str(request));
         return response;
     }
 
@@ -65,10 +65,10 @@ public class MessageAPI extends ServiceAPI {
      * @return
      * @throws IOException
      */
-    public static ErrorResponse deleteTemplate(String accessToken, String templateId) throws IOException {
+    public static APIResponse deleteTemplate(String accessToken, String templateId) throws IOException {
         String url = formatUrl(wechatProperties.getProperty("url.message.deleteTemplate"), new String[]{accessToken});
         TemplateDeleteRequest request = new TemplateDeleteRequest(templateId);
-        ErrorResponse response = invokeAPI(url, ApiMethod.POST, ErrorResponse.class, JsonUtil.bean2str(request));
+        APIResponse response = invokeAPI(url, ApiMethod.POST, APIResponse.class, JsonUtil.bean2str(request));
         return response;
     }
 

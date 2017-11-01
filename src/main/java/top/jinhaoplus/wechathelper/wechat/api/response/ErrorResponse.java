@@ -1,6 +1,6 @@
 package top.jinhaoplus.wechathelper.wechat.api.response;
 
-public class ErrorResponse extends APIResponse{
+public class ErrorResponse{
     private Integer errcode;
     private String errmsg;
 

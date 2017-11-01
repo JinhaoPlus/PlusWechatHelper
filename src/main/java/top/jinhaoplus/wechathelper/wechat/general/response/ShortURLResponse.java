@@ -1,8 +1,8 @@
 package top.jinhaoplus.wechathelper.wechat.general.response;
 
-import top.jinhaoplus.wechathelper.wechat.api.response.ErrorResponse;
+import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 
-public class ShortURLResponse extends ErrorResponse {
+public class ShortURLResponse extends APIResponse {
     private String short_url;
 
     public String getShort_url() {

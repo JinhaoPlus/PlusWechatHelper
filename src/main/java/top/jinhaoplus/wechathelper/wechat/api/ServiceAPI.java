@@ -1,11 +1,14 @@
 package top.jinhaoplus.wechathelper.wechat.api;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.web.client.RestTemplate;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.utils.JsonUtil;
 import top.jinhaoplus.wechathelper.wechat.utils.SysConfig;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Properties;
 
@@ -19,16 +22,44 @@ public class ServiceAPI {
     protected final static String appId = wechatProperties.getProperty("service.appid");
     protected final static String appSecret = wechatProperties.getProperty("service.appsecret");
 
+    /**
+     * API内部调用方法：content-type默认使用application/json;charset=UTF-8
+     * @param apiUrl
+     * @param apiMethod
+     * @param responseType
+     * @param entity
+     * @param <T>
+     * @return
+     */
     protected static synchronized <T extends APIResponse> T invokeAPI(String apiUrl, ApiMethod apiMethod, Class<T> responseType, Object entity) {
+        // 默认的content-type为application/json;charset=UTF-8
+        return invokeAPI(apiUrl, apiMethod, responseType, entity, MediaType.APPLICATION_JSON_UTF8);
+    }
+
+    /**
+     * 灵活的API内部调用方法，可自行指定content-type
+     * @param apiUrl
+     * @param apiMethod
+     * @param responseType
+     * @param entity
+     * @param mediaType
+     * @param <T>
+     * @return
+     */
+    protected static synchronized <T extends APIResponse> T invokeAPI(String apiUrl, ApiMethod apiMethod, Class<T> responseType, Object entity, MediaType mediaType) {
         APIResponse response = new APIResponse();
         String plainResponse;
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(mediaType);
         if (apiMethod != null && !StringUtils.isBlank(apiUrl)) {
             try {
                 if (ApiMethod.GET.equals(apiMethod)) {
                     plainResponse = client.getForEntity(apiUrl, String.class).getBody();
                     response = JsonUtil.str2bean(plainResponse, responseType);
                 } else if (ApiMethod.POST.equals(apiMethod)) {
-                    plainResponse = client.postForEntity(apiUrl, entity, String.class).getBody();
+                    // HttpEntity即为需要发送的消息实体
+                    HttpEntity<Object> requestEntity = new HttpEntity<>(entity, headers);
+                    plainResponse = client.postForEntity(apiUrl, requestEntity, String.class).getBody();
                     response = JsonUtil.str2bean(plainResponse, responseType);
                 }
                 logger.info(loggerHeader + "接口调用成功");

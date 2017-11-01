@@ -1,6 +1,6 @@
 package top.jinhaoplus.wechathelper.wechat.api.response;
 
-public class APIResponse {
+public class APIResponse extends ErrorResponse{
     /**
      * 是否获取到所需返回结果
      */

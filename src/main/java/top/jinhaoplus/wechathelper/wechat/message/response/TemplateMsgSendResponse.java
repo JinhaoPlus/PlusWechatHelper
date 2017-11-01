@@ -1,9 +1,9 @@
 package top.jinhaoplus.wechathelper.wechat.message.response;
 
 
-import top.jinhaoplus.wechathelper.wechat.api.response.ErrorResponse;
+import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 
-public class TemplateMsgSendResponse extends ErrorResponse {
+public class TemplateMsgSendResponse extends APIResponse {
 
     private Integer msgid;
 
