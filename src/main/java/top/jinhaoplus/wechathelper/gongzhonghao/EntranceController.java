@@ -1,18 +1,18 @@
 package top.jinhaoplus.wechathelper.gongzhonghao;
 
-import top.jinhaoplus.wechathelper.wechat.utils.JaxbXmlUtil;
-import top.jinhaoplus.wechathelper.wechat.basic.BasicAPI;
-import top.jinhaoplus.wechathelper.wechat.message.handlers.ControlHandler;
-import top.jinhaoplus.wechathelper.wechat.message.models.MessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.data.*;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import top.jinhaoplus.wechathelper.wechat.basic.BasicAPI;
+import top.jinhaoplus.wechathelper.wechat.message.handlers.ControlHandler;
+import top.jinhaoplus.wechathelper.wechat.message.models.MessageType;
+import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.receive.data.*;
+import top.jinhaoplus.wechathelper.wechat.utils.JaxbXmlUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -124,7 +124,6 @@ public class EntranceController {
                 return responseStr;
             else
                 return QUIET_RESULT;
-//                throw new WechatAPIException("无效空回复");
         } catch (Exception e) {
             e.printStackTrace();
             return QUIET_RESULT;

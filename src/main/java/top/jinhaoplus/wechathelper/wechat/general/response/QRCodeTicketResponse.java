@@ -1,7 +1,7 @@
 package top.jinhaoplus.wechathelper.wechat.general.response;
 
 
-import top.jinhaoplus.wechathelper.wechat.api.APIResponse;
+import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 
 /**
  * 二维码换取票据响应

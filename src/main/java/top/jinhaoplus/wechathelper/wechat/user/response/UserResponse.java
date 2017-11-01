@@ -1,6 +1,6 @@
 package top.jinhaoplus.wechathelper.wechat.user.response;
 
-import top.jinhaoplus.wechathelper.wechat.api.APIResponse;
+import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 
 /**
  * User的获取结果

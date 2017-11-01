@@ -4,6 +4,7 @@ import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveEventMes
 import top.jinhaoplus.wechathelper.wechat.message.models.receive.event.ReceiveLocationReceiveEventMessage;
 import top.jinhaoplus.wechathelper.wechat.message.models.receive.event.ReceiveQRCodeReceiveEventMessage;
 import top.jinhaoplus.wechathelper.wechat.message.models.receive.event.ReceiveSubUnsubReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.receive.event.ReceiveTemplateJobFinishEventMessage;
 import top.jinhaoplus.wechathelper.wechat.message.models.send.SendMessage;
 import top.jinhaoplus.wechathelper.wechat.message.models.send.data.text.SendTextMessage;
 import top.jinhaoplus.wechathelper.wechat.message.replyers.impl.InternalEventReplyer;
@@ -23,6 +24,10 @@ public class ReceiveEventReplyer extends InternalEventReplyer {
             }else if(receiveEventMessage instanceof ReceiveQRCodeReceiveEventMessage){
                 SendTextMessage sendTextMessage = convertSendMessage(defaultSendMessage, SendTextMessage.class);
                 sendTextMessage.setContent("SCAN");
+                return sendTextMessage;
+            }else if(receiveEventMessage instanceof ReceiveTemplateJobFinishEventMessage){
+                SendTextMessage sendTextMessage = convertSendMessage(defaultSendMessage, SendTextMessage.class);
+                sendTextMessage.setContent("模版发掉了");
                 return sendTextMessage;
             }else if(receiveEventMessage instanceof ReceiveLocationReceiveEventMessage){
                 return defaultSendMessage;

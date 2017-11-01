@@ -1,6 +1,6 @@
 package top.jinhaoplus.wechathelper.wechat.basic.response;
 
-import top.jinhaoplus.wechathelper.wechat.api.APIResponse;
+import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 
 import java.util.List;
 

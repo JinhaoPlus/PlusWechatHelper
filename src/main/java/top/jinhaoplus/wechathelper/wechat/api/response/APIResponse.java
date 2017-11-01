@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.api;
+package top.jinhaoplus.wechathelper.wechat.api.response;
 
 public class APIResponse {
     /**

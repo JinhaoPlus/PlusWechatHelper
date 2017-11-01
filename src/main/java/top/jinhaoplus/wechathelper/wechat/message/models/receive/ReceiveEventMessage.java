@@ -1,9 +1,6 @@
 package top.jinhaoplus.wechathelper.wechat.message.models.receive;
 
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.event.ReceiveCustomizedMenuReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.event.ReceiveLocationReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.event.ReceiveQRCodeReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.event.ReceiveSubUnsubReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.receive.event.*;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -35,17 +32,18 @@ public class ReceiveEventMessage extends ReceiveMessage {
                 || ReceiveEventType.unsubscribe.equals(receiveEventMessage.getEvent()))
                 && !messageStr.contains("EventKey")) {
             return ReceiveSubUnsubReceiveEventMessage.class;
-        }
-        else if ((ReceiveEventType.subscribe.equals(receiveEventMessage.getEvent())
+        } else if ((ReceiveEventType.subscribe.equals(receiveEventMessage.getEvent())
                 || ReceiveEventType.SCAN.equals(receiveEventMessage.getEvent()))
                 && messageStr.contains("EventKey")) {
             return ReceiveQRCodeReceiveEventMessage.class;
-        }else if (ReceiveEventType.LOCATION.equals(receiveEventMessage.getEvent())) {
+        } else if (ReceiveEventType.LOCATION.equals(receiveEventMessage.getEvent())) {
             return ReceiveLocationReceiveEventMessage.class;
-        }else if (ReceiveEventType.CLICK.equals(receiveEventMessage.getEvent())
-                    || ReceiveEventType.VIEW.equals(receiveEventMessage.getEvent())) {
+        } else if (ReceiveEventType.CLICK.equals(receiveEventMessage.getEvent())
+                || ReceiveEventType.VIEW.equals(receiveEventMessage.getEvent())) {
             return ReceiveCustomizedMenuReceiveEventMessage.class;
-        }else
+        } else if (ReceiveEventType.TEMPLATESENDJOBFINISH.equals(receiveEventMessage.getEvent())) {
+            return ReceiveTemplateJobFinishEventMessage.class;
+        } else
             return ReceiveEventMessage.class;
     }
 }

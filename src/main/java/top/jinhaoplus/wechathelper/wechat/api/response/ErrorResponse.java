@@ -1,9 +1,6 @@
-package top.jinhaoplus.wechathelper.wechat.menu.response;
+package top.jinhaoplus.wechathelper.wechat.api.response;
 
-
-import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
-
-public class CustomizedMenuResponse extends APIResponse {
+public class ErrorResponse extends APIResponse{
     private Integer errcode;
     private String errmsg;
 

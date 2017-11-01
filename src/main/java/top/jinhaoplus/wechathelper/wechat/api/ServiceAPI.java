@@ -1,5 +1,6 @@
 package top.jinhaoplus.wechathelper.wechat.api;
 
+import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.utils.JsonUtil;
 import top.jinhaoplus.wechathelper.wechat.utils.SysConfig;
 import org.apache.commons.lang3.StringUtils;

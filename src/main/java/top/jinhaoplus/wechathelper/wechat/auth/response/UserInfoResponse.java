@@ -1,7 +1,7 @@
 package top.jinhaoplus.wechathelper.wechat.auth.response;
 
 
-import top.jinhaoplus.wechathelper.wechat.api.APIResponse;
+import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 
 public class UserInfoResponse extends APIResponse {
 

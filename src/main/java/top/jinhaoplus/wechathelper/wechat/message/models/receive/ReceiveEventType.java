@@ -6,7 +6,8 @@ public enum ReceiveEventType {
     SCAN("SCAN"),
     LOCATION("LOCATION"),
     CLICK("CLICK"),
-    VIEW("VIEW");
+    VIEW("VIEW"),
+    TEMPLATESENDJOBFINISH("TEMPLATESENDJOBFINISH");
 
     private String eventType;
 

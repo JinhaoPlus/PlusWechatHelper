@@ -1,13 +1,16 @@
 package top.jinhaoplus.wechathelper.wechat.general;
 
-import top.jinhaoplus.wechathelper.wechat.utils.JsonUtil;
+import org.apache.commons.lang3.StringUtils;
 import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
 import top.jinhaoplus.wechathelper.wechat.general.entity.QRCodeActionInfo;
 import top.jinhaoplus.wechathelper.wechat.general.entity.QRCodeTicketRequest;
+import top.jinhaoplus.wechathelper.wechat.general.entity.ShortURLRequest;
 import top.jinhaoplus.wechathelper.wechat.general.response.QRCodeTicketResponse;
-import org.apache.commons.lang3.StringUtils;
+import top.jinhaoplus.wechathelper.wechat.general.response.ShortURLResponse;
+import top.jinhaoplus.wechathelper.wechat.utils.JsonUtil;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class GeneralAPI extends ServiceAPI {
@@ -35,5 +38,20 @@ public class GeneralAPI extends ServiceAPI {
         if (!StringUtils.isBlank(qrCodeTicketResponse.getTicket()))
             return formatUrl(wechatProperties.getProperty("url.general.qrcode"), new String[]{qrCodeTicketResponse.getTicket()});
         return null;
+    }
+
+
+    /**
+     * 将长URL转换为短链接
+     *
+     * @param accessToken
+     * @param longUrl
+     * @return
+     */
+    public static String getShortUrl(String accessToken, String longUrl) throws IOException {
+        String url = formatUrl(wechatProperties.getProperty("url.general.shorturl"), new String[]{accessToken});
+        ShortURLRequest request = new ShortURLRequest(longUrl);
+        ShortURLResponse response = invokeAPI(url, ApiMethod.POST, ShortURLResponse.class, JsonUtil.bean2str(request));
+        return response.getShort_url();
     }
 }
