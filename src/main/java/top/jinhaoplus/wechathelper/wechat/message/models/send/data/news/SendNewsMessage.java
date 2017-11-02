@@ -61,5 +61,3 @@ public class SendNewsMessage extends SendMessage {
         this.articles = articles;
     }
 }
-
-

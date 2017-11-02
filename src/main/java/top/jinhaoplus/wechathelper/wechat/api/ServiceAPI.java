@@ -60,6 +60,7 @@ public class ServiceAPI {
                     // HttpEntity即为需要发送的消息实体
                     HttpEntity<Object> requestEntity = new HttpEntity<>(entity, headers);
                     plainResponse = client.postForEntity(apiUrl, requestEntity, String.class).getBody();
+                    System.out.println(plainResponse);
                     response = JsonUtil.str2bean(plainResponse, responseType);
                 }
                 logger.info(loggerHeader + "接口调用成功");
