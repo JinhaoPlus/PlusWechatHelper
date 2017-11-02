@@ -92,7 +92,7 @@ public class MediaAPITest {
 
     @Test
     public void addMaterial() throws Exception {
-        MaterialAddResponse response = MediaAPI.addMaterial(BasicAPI.getAccessTokenStr(), "/Users/jinhaoplus/Desktop/abc.png", Mediatype.image);
+        MaterialAddResponse response = MediaAPI.addMaterial(BasicAPI.getAccessTokenStr(), "/Users/jinhaoplus/Desktop/abc.png", Mediatype.image, null);
         System.out.println(response.getMedia_id());
         System.out.println(response.getUrl());
     }

@@ -1,12 +1,12 @@
 package top.jinhaoplus.wechathelper.wechat.basic;
 
-import top.jinhaoplus.wechathelper.wechat.utils.SecurityUtil;
+import org.apache.commons.lang3.StringUtils;
 import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
 import top.jinhaoplus.wechathelper.wechat.basic.response.AccessTokenResponse;
 import top.jinhaoplus.wechathelper.wechat.basic.response.IPListResponse;
 import top.jinhaoplus.wechathelper.wechat.exception.WechatAPIException;
-import org.apache.commons.lang3.StringUtils;
+import top.jinhaoplus.wechathelper.wechat.utils.SecurityUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
