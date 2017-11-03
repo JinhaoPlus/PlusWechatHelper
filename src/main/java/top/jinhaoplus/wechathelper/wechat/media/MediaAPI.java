@@ -7,7 +7,8 @@ import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.exception.WechatAPIException;
-import top.jinhaoplus.wechathelper.wechat.media.entity.*;
+import top.jinhaoplus.wechathelper.wechat.media.entity.Mediatype;
+import top.jinhaoplus.wechathelper.wechat.media.request.*;
 import top.jinhaoplus.wechathelper.wechat.media.response.*;
 
 import java.io.File;
@@ -15,7 +16,7 @@ import java.io.File;
 public class MediaAPI extends ServiceAPI {
 
     /**
-     * 添加新临时素材
+     * 添加新临时素材: 在获取素材列表接口中无法获取到这一类临时素材
      *
      * @param accessToken
      * @param sourcefilePath 临时素材在本地文件系统里的路径
@@ -47,6 +48,38 @@ public class MediaAPI extends ServiceAPI {
 
 
     /**
+     * 上传临时图文消息素材：在获取图文消息素材列表接口中无法获取到这一类临时图文消息素材
+     *
+     * @param accessToken
+     * @param request     组装好的图文消息素材
+     * @return
+     */
+    public static NewsUploadResponse uploadNews(String accessToken, NewsAddRequest request) {
+        String url = formatUrl(wechatProperties.getProperty("url.media.uploadnews"), new String[]{accessToken});
+        NewsUploadResponse response = invokeAPI(url, ApiMethod.POST, NewsUploadResponse.class, request);
+        return response;
+    }
+
+    /**
+     * 上传图文消息内的临时图片获取URL
+     *
+     * @param accessToken
+     * @param sourcefilePath 上传图文消息内的图片在本地文件系统里的路径
+     * @return
+     */
+    public static UploadImgResponse uploadNewsImg(String accessToken, String sourcefilePath) {
+        String url = formatUrl(wechatProperties.getProperty("url.media.uploadimg"), new String[]{accessToken});
+        File file = new File(sourcefilePath);
+        if (file.exists()) {
+            LinkedMultiValueMap<String, Object> paraMap = new LinkedMultiValueMap<>();
+            paraMap.add("media", new FileSystemResource(file));
+            UploadImgResponse response = invokeAPI(url, ApiMethod.POST, UploadImgResponse.class, paraMap, MediaType.MULTIPART_FORM_DATA);
+            return response;
+        }
+        throw new WechatAPIException("素材文件在本地文件系统不存在");
+    }
+
+    /**
      * 添加新永久素材
      *
      * @param accessToken
@@ -71,7 +104,7 @@ public class MediaAPI extends ServiceAPI {
     }
 
     /**
-     * 新增永久图文素材
+     * 新增永久图文消息素材
      *
      * @param accessToken
      * @param request     组装好的图文消息素材
@@ -84,7 +117,7 @@ public class MediaAPI extends ServiceAPI {
     }
 
     /**
-     * 修改永久图文素材
+     * 修改永久图文消息素材
      *
      * @param accessToken
      * @param request     组装好的图文消息修改素材
@@ -111,7 +144,7 @@ public class MediaAPI extends ServiceAPI {
     }
 
     /**
-     * 获取永久素材:图文素材
+     * 获取永久素材:图文消息素材
      *
      * @param accessToken
      * @param mediaId
@@ -124,28 +157,8 @@ public class MediaAPI extends ServiceAPI {
         return response;
     }
 
-
     /**
-     * 上传图文消息内的图片获取URL
-     *
-     * @param accessToken
-     * @param sourcefilePath 上传图文消息内的图片在本地文件系统里的路径
-     * @return
-     */
-    public static UploadImgResponse uploadNewsImg(String accessToken, String sourcefilePath) {
-        String url = formatUrl(wechatProperties.getProperty("url.media.uploadimg"), new String[]{accessToken});
-        File file = new File(sourcefilePath);
-        if (file.exists()) {
-            LinkedMultiValueMap<String, Object> paraMap = new LinkedMultiValueMap<>();
-            paraMap.add("media", new FileSystemResource(file));
-            UploadImgResponse response = invokeAPI(url, ApiMethod.POST, UploadImgResponse.class, paraMap, MediaType.MULTIPART_FORM_DATA);
-            return response;
-        }
-        throw new WechatAPIException("素材文件在本地文件系统不存在");
-    }
-
-    /**
-     * 删除素材
+     * 删除永久素材
      *
      * @param accessToken
      * @return
@@ -154,6 +167,22 @@ public class MediaAPI extends ServiceAPI {
         String url = formatUrl(wechatProperties.getProperty("url.media.deletematerial"), new String[]{accessToken});
         MaterialGetRequest request = new MaterialGetRequest(mediaId);
         APIResponse response = invokeAPI(url, ApiMethod.POST, APIResponse.class, request);
+        return response;
+    }
+
+    /**
+     * 获取素材列表:除图文消息素材外的图片、语音、视频素材
+     *
+     * @param accessToken
+     * @param type
+     * @return
+     */
+    public static MaterialListGetResponse getMaterialList(String accessToken, Mediatype type) {
+        String url = formatUrl(wechatProperties.getProperty("url.media.materiallist"), new String[]{accessToken});
+        Integer offset = 0;
+        Integer count = 20;
+        MaterialListRequest request = new MaterialListRequest(type.toString(), offset, count);
+        MaterialListGetResponse response = invokeAPI(url, ApiMethod.POST, MaterialListGetResponse.class, request);
         return response;
     }
 

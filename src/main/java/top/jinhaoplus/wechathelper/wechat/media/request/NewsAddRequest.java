@@ -1,4 +1,6 @@
-package top.jinhaoplus.wechathelper.wechat.media.entity;
+package top.jinhaoplus.wechathelper.wechat.media.request;
+
+import top.jinhaoplus.wechathelper.wechat.media.entity.Article;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.media.entity;
+package top.jinhaoplus.wechathelper.wechat.media.request;
 
 public class MaterialGetRequest {
     private String media_id;

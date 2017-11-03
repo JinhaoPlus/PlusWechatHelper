@@ -1,4 +1,6 @@
-package top.jinhaoplus.wechathelper.wechat.media.entity;
+package top.jinhaoplus.wechathelper.wechat.media.request;
+
+import top.jinhaoplus.wechathelper.wechat.media.entity.Article;
 
 public class NewsUpdateRequest {
     private String media_id;

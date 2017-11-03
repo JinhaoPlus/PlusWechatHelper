@@ -7,5 +7,4 @@ public class BasicAPITest {
     public void getAccessToken() throws Exception {
         System.out.println(BasicAPI.getAccessTokenStr());
     }
-
 }
