@@ -36,6 +36,20 @@ public class MediaAPI extends ServiceAPI {
     }
 
     /**
+     * 二次上传视频临时素材：获取群发视频消息所需的视频media_id
+     *
+     * @param accessToken
+     * @param mediaId     通过addTempMedia接口上传临时视频素材获得的mediaId
+     * @return
+     */
+    public static MassSendVideoUploadResponse uploadMesssendVideo(String accessToken, String mediaId, String title, String description) {
+        String url = formatUrl(wechatProperties.getProperty("url.media.uploadvideo"), new String[]{accessToken});
+        MassSendVideoUpdateRequest request = new MassSendVideoUpdateRequest(mediaId, title, description);
+        MassSendVideoUploadResponse response = invokeAPI(url, ApiMethod.POST, MassSendVideoUploadResponse.class, request);
+        return response;
+    }
+
+    /**
      * 获取临时素材
      *
      * @param accessToken
@@ -49,6 +63,7 @@ public class MediaAPI extends ServiceAPI {
 
     /**
      * 上传临时图文消息素材：在获取图文消息素材列表接口中无法获取到这一类临时图文消息素材
+     * 图文素材中的封面图片缩略图需使用addTempMedia接口上传临时缩略图，若使用addMaterial上传的永久素材会报错
      *
      * @param accessToken
      * @param request     组装好的图文消息素材

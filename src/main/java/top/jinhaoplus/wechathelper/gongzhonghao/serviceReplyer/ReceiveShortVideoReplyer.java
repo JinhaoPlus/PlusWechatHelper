@@ -1,8 +1,8 @@
 package top.jinhaoplus.wechathelper.gongzhonghao.serviceReplyer;
 
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.data.ReceiveShortVideoMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.send.SendMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.send.data.text.SendTextMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.data.ReceiveShortVideoMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.send.SendMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.send.data.text.SendTextMessage;
 import top.jinhaoplus.wechathelper.wechat.message.replyers.impl.InternalReceiveShortVideoReplyer;
 import org.springframework.stereotype.Component;
 

@@ -56,9 +56,9 @@ public class MediaAPITest {
         request.getArticles().add(article1);
         request.getArticles().add(article2);
         request.getArticles().add(article3);
-//        NewsUploadResponse response = MediaAPI.uploadNews(BasicAPI.getAccessTokenStr(), request);
+        NewsUploadResponse response = MediaAPI.uploadNews(BasicAPI.getAccessTokenStr(), request);
         System.out.println(JsonUtil.bean2str(request));
-//        System.out.println(response.getMedia_id());
+        System.out.println(response.getMedia_id());
     }
 
     @Test

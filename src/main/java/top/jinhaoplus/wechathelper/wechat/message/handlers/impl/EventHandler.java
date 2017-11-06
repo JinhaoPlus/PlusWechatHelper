@@ -1,8 +1,8 @@
 package top.jinhaoplus.wechathelper.wechat.message.handlers.impl;
 
 import top.jinhaoplus.wechathelper.wechat.message.handlers.ControlHandler;
-import top.jinhaoplus.wechathelper.wechat.message.models.MessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.PassiveMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveEventMessage;
 import top.jinhaoplus.wechathelper.wechat.message.replyers.impl.InternalEventReplyer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,7 @@ public class EventHandler extends ControlHandler<ReceiveEventMessage> {
 
     @PostConstruct
     public void init() {
-        super.handleMsgType = MessageType.event;
+        super.handleMsgType = PassiveMessageType.event;
         super.replyer = eventReplyer;
     }
 }

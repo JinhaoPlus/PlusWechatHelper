@@ -1,8 +1,8 @@
 package top.jinhaoplus.wechathelper.wechat.message.replyers;
 
 
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.send.SendMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.send.SendMessage;
 
 /**
  * 微信消息回复器接口

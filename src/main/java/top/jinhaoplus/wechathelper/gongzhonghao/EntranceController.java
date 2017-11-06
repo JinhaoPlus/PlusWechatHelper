@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import top.jinhaoplus.wechathelper.wechat.basic.BasicAPI;
 import top.jinhaoplus.wechathelper.wechat.message.handlers.ControlHandler;
-import top.jinhaoplus.wechathelper.wechat.message.models.MessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.data.*;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.PassiveMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.data.*;
 import top.jinhaoplus.wechathelper.wechat.utils.JaxbXmlUtil;
 
 import javax.annotation.Resource;
@@ -95,28 +95,28 @@ public class EntranceController {
 
         String responseStr = QUIET_RESULT;
         try {
-            if (MessageType.text.equals(msgType)) {
+            if (PassiveMessageType.text.equals(msgType)) {
                 message = JaxbXmlUtil.xmlToBean(messageStr, ReceiveMessage.class, ReceiveTextMessage.class);
                 responseStr = textHandler.handle(message);
-            } else if (MessageType.image.equals(msgType)) {
+            } else if (PassiveMessageType.image.equals(msgType)) {
                 message = JaxbXmlUtil.xmlToBean(messageStr, ReceiveMessage.class, ReceiveImageMessage.class);
                 responseStr = imageHandler.handle(message);
-            } else if (MessageType.voice.equals(msgType)) {
+            } else if (PassiveMessageType.voice.equals(msgType)) {
                 message = JaxbXmlUtil.xmlToBean(messageStr, ReceiveMessage.class, ReceiveVoiceMessage.class);
                 responseStr = voiceHandler.handle(message);
-            } else if (MessageType.video.equals(msgType)) {
+            } else if (PassiveMessageType.video.equals(msgType)) {
                 message = JaxbXmlUtil.xmlToBean(messageStr, ReceiveMessage.class, ReceiveVideoMessage.class);
                 responseStr = videoHandler.handle(message);
-            } else if (MessageType.shortvideo.equals(msgType)) {
+            } else if (PassiveMessageType.shortvideo.equals(msgType)) {
                 message = JaxbXmlUtil.xmlToBean(messageStr, ReceiveMessage.class, ReceiveShortVideoMessage.class);
                 responseStr = shortVideoHandler.handle(message);
-            } else if (MessageType.location.equals(msgType)) {
+            } else if (PassiveMessageType.location.equals(msgType)) {
                 message = JaxbXmlUtil.xmlToBean(messageStr, ReceiveMessage.class, ReceiveLocationMessage.class);
                 responseStr = locationHandler.handle(message);
-            } else if (MessageType.link.equals(msgType)) {
+            } else if (PassiveMessageType.link.equals(msgType)) {
                 message = JaxbXmlUtil.xmlToBean(messageStr, ReceiveMessage.class, ReceiveLinkMessage.class);
                 responseStr = linkHandler.handle(message);
-            } else if (MessageType.event.equals(msgType)) {
+            } else if (PassiveMessageType.event.equals(msgType)) {
                 message = JaxbXmlUtil.xmlToBean(messageStr, ReceiveMessage.class, ReceiveEventMessage.class);
                 responseStr = eventHandler.handleEvent(messageStr, message);
             }

@@ -1,7 +1,7 @@
 package top.jinhaoplus.wechathelper.wechat.message.replyers.impl;
 
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.data.ReceiveShortVideoMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.send.SendMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.data.ReceiveShortVideoMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.send.SendMessage;
 import top.jinhaoplus.wechathelper.wechat.message.replyers.SimpleReplyer;
 
 public abstract class InternalReceiveShortVideoReplyer extends SimpleReplyer<ReceiveShortVideoMessage> {

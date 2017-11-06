@@ -1,14 +1,14 @@
 package top.jinhaoplus.wechathelper.wechat.message.handlers;
 
 
-import top.jinhaoplus.wechathelper.wechat.utils.JaxbXmlUtil;
-import top.jinhaoplus.wechathelper.wechat.exception.WechatAPIException;
-import top.jinhaoplus.wechathelper.wechat.message.models.MessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.receive.ReceiveMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.send.SendMessage;
-import top.jinhaoplus.wechathelper.wechat.message.replyers.Replyer;
 import org.apache.commons.lang3.StringUtils;
+import top.jinhaoplus.wechathelper.wechat.exception.WechatAPIException;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.PassiveMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveMessage;
+import top.jinhaoplus.wechathelper.wechat.message.models.passive.send.SendMessage;
+import top.jinhaoplus.wechathelper.wechat.message.replyers.Replyer;
+import top.jinhaoplus.wechathelper.wechat.utils.JaxbXmlUtil;
 
 /**
  * 输入微信消息后的处理器接口
@@ -17,7 +17,7 @@ public class ControlHandler<T extends ReceiveMessage> {
 
     protected Replyer<T> replyer;
 
-    protected MessageType handleMsgType;
+    protected PassiveMessageType handleMsgType;
 
     /**
      * 检查输入消息的类型是否正确
