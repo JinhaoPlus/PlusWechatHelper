@@ -3,15 +3,14 @@ package top.jinhaoplus.wechathelper.wechat.message.models.passive.send.data.vide
 import javax.xml.bind.annotation.XmlElement;
 
 public class Video {
-    @XmlElement(name = "MediaId")
+
     private String mediaId;
 
-    @XmlElement(name = "Title")
     private String title;
 
-    @XmlElement(name = "Description")
     private String description;
 
+    @XmlElement(name = "MediaId")
     public String getMediaId() {
         return mediaId;
     }
@@ -20,6 +19,7 @@ public class Video {
         this.mediaId = mediaId;
     }
 
+    @XmlElement(name = "Title")
     public String getTitle() {
         return title;
     }
@@ -28,6 +28,7 @@ public class Video {
         this.title = title;
     }
 
+    @XmlElement(name = "Description")
     public String getDescription() {
         return description;
     }

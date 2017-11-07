@@ -2,25 +2,25 @@ package top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.event.
 
 import javax.xml.bind.annotation.XmlElement;
 
-public class CopyrightCheckResultItem{
+public class CopyrightCheckResultItem {
 
-    @XmlElement(name = "ArticleIdx")
     private Integer articleIdx;
-    @XmlElement(name = "UserDeclareState")
+
     private Integer userDeclareState;
-    @XmlElement(name = "AuditState")
+
     private Integer auditState;
-    @XmlElement(name = "OriginalArticleUrl")
+
     private String originalArticleUrl;
-    @XmlElement(name = "OriginalArticleType")
+
     private Integer originalArticleType;
-    @XmlElement(name = "CanReprint")
+
     private Integer canReprint;
-    @XmlElement(name = "NeedReplaceContent")
+
     private Integer needReplaceContent;
-    @XmlElement(name = "NeedShowReprintSource")
+
     private Integer needShowReprintSource;
 
+    @XmlElement(name = "ArticleIdx")
     public Integer getArticleIdx() {
         return articleIdx;
     }
@@ -29,6 +29,7 @@ public class CopyrightCheckResultItem{
         this.articleIdx = articleIdx;
     }
 
+    @XmlElement(name = "UserDeclareState")
     public Integer getUserDeclareState() {
         return userDeclareState;
     }
@@ -37,6 +38,7 @@ public class CopyrightCheckResultItem{
         this.userDeclareState = userDeclareState;
     }
 
+    @XmlElement(name = "AuditState")
     public Integer getAuditState() {
         return auditState;
     }
@@ -45,6 +47,7 @@ public class CopyrightCheckResultItem{
         this.auditState = auditState;
     }
 
+    @XmlElement(name = "OriginalArticleUrl")
     public String getOriginalArticleUrl() {
         return originalArticleUrl;
     }
@@ -53,6 +56,7 @@ public class CopyrightCheckResultItem{
         this.originalArticleUrl = originalArticleUrl;
     }
 
+    @XmlElement(name = "OriginalArticleType")
     public Integer getOriginalArticleType() {
         return originalArticleType;
     }
@@ -61,6 +65,7 @@ public class CopyrightCheckResultItem{
         this.originalArticleType = originalArticleType;
     }
 
+    @XmlElement(name = "CanReprint")
     public Integer getCanReprint() {
         return canReprint;
     }
@@ -69,6 +74,7 @@ public class CopyrightCheckResultItem{
         this.canReprint = canReprint;
     }
 
+    @XmlElement(name = "NeedReplaceContent")
     public Integer getNeedReplaceContent() {
         return needReplaceContent;
     }
@@ -77,6 +83,7 @@ public class CopyrightCheckResultItem{
         this.needReplaceContent = needReplaceContent;
     }
 
+    @XmlElement(name = "NeedShowReprintSource")
     public Integer getNeedShowReprintSource() {
         return needShowReprintSource;
     }

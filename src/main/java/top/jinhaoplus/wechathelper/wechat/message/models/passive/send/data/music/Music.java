@@ -3,22 +3,17 @@ package top.jinhaoplus.wechathelper.wechat.message.models.passive.send.data.musi
 import javax.xml.bind.annotation.XmlElement;
 
 public class Music {
-
-    @XmlElement(name = "Title")
     private String title;
 
-    @XmlElement(name = "Description")
     private String description;
 
-    @XmlElement(name = "MusicUrl")
     private String musicUrl;
 
-    @XmlElement(name = "HQMusicUrl")
     private String hqMusicUrl;
 
-    @XmlElement(name = "ThumbMediaId")
     private String thumbMediaId;
 
+    @XmlElement(name = "Title")
     public String getTitle() {
         return title;
     }
@@ -27,6 +22,7 @@ public class Music {
         this.title = title;
     }
 
+    @XmlElement(name = "Description")
     public String getDescription() {
         return description;
     }
@@ -35,6 +31,7 @@ public class Music {
         this.description = description;
     }
 
+    @XmlElement(name = "MusicUrl")
     public String getMusicUrl() {
         return musicUrl;
     }
@@ -43,6 +40,7 @@ public class Music {
         this.musicUrl = musicUrl;
     }
 
+    @XmlElement(name = "HQMusicUrl")
     public String getHqMusicUrl() {
         return hqMusicUrl;
     }
@@ -51,6 +49,7 @@ public class Music {
         this.hqMusicUrl = hqMusicUrl;
     }
 
+    @XmlElement(name = "ThumbMediaId")
     public String getThumbMediaId() {
         return thumbMediaId;
     }

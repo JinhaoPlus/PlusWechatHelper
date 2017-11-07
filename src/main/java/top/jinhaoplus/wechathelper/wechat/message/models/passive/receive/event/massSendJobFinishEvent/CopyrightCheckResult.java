@@ -1,19 +1,18 @@
 package top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.event.massSendJobFinishEvent;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.List;
 
-public class CopyrightCheckResult{
+public class CopyrightCheckResult {
 
-    @XmlElement(name = "Count")
     private Long count;
 
-    @XmlElement(name = "ResultList")
     private List<CopyrightCheckResultItem> resultList;
 
-    @XmlElement(name = "CheckState")
     private Long checkState;
 
+    @XmlElement(name = "Count")
     public Long getCount() {
         return count;
     }
@@ -22,6 +21,8 @@ public class CopyrightCheckResult{
         this.count = count;
     }
 
+    @XmlElementWrapper(name = "ResultList")
+    @XmlElement(name="item")
     public List<CopyrightCheckResultItem> getResultList() {
         return resultList;
     }
@@ -30,6 +31,7 @@ public class CopyrightCheckResult{
         this.resultList = resultList;
     }
 
+    @XmlElement(name = "CheckState")
     public Long getCheckState() {
         return checkState;
     }

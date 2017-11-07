@@ -3,9 +3,10 @@ package top.jinhaoplus.wechathelper.wechat.message.models.passive.send.data.voic
 import javax.xml.bind.annotation.XmlElement;
 
 public class Voice {
-    @XmlElement(name = "MediaId")
+
     private String mediaId;
 
+    @XmlElement(name = "MediaId")
     public String getMediaId() {
         return mediaId;
     }

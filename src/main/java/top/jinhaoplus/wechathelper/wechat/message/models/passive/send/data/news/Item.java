@@ -8,15 +8,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "item")
 public class Item {
-    @XmlElement(name = "Title")
+
     private String title;
-    @XmlElement(name = "Description")
+
     private String description;
-    @XmlElement(name = "PicUrl")
+
     private String picUrl;
-    @XmlElement(name = "Url")
+
     private String url;
 
+    @XmlElement(name = "Title")
     public String getTitle() {
         return title;
     }
@@ -25,6 +26,7 @@ public class Item {
         this.title = title;
     }
 
+    @XmlElement(name = "Description")
     public String getDescription() {
         return description;
     }
@@ -33,6 +35,7 @@ public class Item {
         this.description = description;
     }
 
+    @XmlElement(name = "PicUrl")
     public String getPicUrl() {
         return picUrl;
     }
@@ -41,6 +44,7 @@ public class Item {
         this.picUrl = picUrl;
     }
 
+    @XmlElement(name = "Url")
     public String getUrl() {
         return url;
     }
