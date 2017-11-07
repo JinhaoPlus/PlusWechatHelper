@@ -1,7 +1,7 @@
 package top.jinhaoplus.wechathelper.wechat.message.replyers.impl;
 
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.send.SendMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.send.SendMessage;
 import top.jinhaoplus.wechathelper.wechat.message.replyers.SimpleReplyer;
 
 public abstract class InternalEventReplyer extends SimpleReplyer<ReceiveEventMessage> {

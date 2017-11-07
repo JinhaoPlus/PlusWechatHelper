@@ -2,7 +2,7 @@ package top.jinhaoplus.wechathelper.wechat.message.response;
 
 
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
-import top.jinhaoplus.wechathelper.wechat.message.models.template.Template;
+import top.jinhaoplus.wechathelper.wechat.message.entity.template.Template;
 
 import java.util.List;
 

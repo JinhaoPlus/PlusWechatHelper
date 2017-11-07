@@ -3,10 +3,10 @@ package top.jinhaoplus.wechathelper.wechat.message.handlers;
 
 import org.apache.commons.lang3.StringUtils;
 import top.jinhaoplus.wechathelper.wechat.exception.WechatAPIException;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.PassiveMessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.send.SendMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.PassiveMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.send.SendMessage;
 import top.jinhaoplus.wechathelper.wechat.message.replyers.Replyer;
 import top.jinhaoplus.wechathelper.wechat.utils.JaxbXmlUtil;
 

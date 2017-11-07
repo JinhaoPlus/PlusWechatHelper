@@ -1,6 +1,6 @@
 package top.jinhaoplus.wechathelper.wechat.message.request.masspreview;
 
-import top.jinhaoplus.wechathelper.wechat.message.models.masssend.Filter;
+import top.jinhaoplus.wechathelper.wechat.message.entity.masssend.Filter;
 
 public class MassPreviewRequest {
     protected Filter filter;

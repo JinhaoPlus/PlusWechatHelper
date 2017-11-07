@@ -4,14 +4,16 @@ package top.jinhaoplus.wechathelper.wechat.message;
 import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
-import top.jinhaoplus.wechathelper.wechat.message.models.masssend.*;
-import top.jinhaoplus.wechathelper.wechat.message.models.template.Industry;
-import top.jinhaoplus.wechathelper.wechat.message.models.template.IndustrySetRequest;
-import top.jinhaoplus.wechathelper.wechat.message.models.template.TemplateDeleteRequest;
-import top.jinhaoplus.wechathelper.wechat.message.models.template.TemplateSendRequest;
+import top.jinhaoplus.wechathelper.wechat.message.entity.masssend.*;
+import top.jinhaoplus.wechathelper.wechat.message.entity.template.Industry;
+import top.jinhaoplus.wechathelper.wechat.message.entity.template.IndustrySetRequest;
+import top.jinhaoplus.wechathelper.wechat.message.entity.template.TemplateDeleteRequest;
+import top.jinhaoplus.wechathelper.wechat.message.entity.template.TemplateSendRequest;
 import top.jinhaoplus.wechathelper.wechat.message.request.massdelete.MassDeleteRequest;
 import top.jinhaoplus.wechathelper.wechat.message.request.masspreview.*;
 import top.jinhaoplus.wechathelper.wechat.message.request.masssend.*;
+import top.jinhaoplus.wechathelper.wechat.message.request.massspeed.MassSpeed;
+import top.jinhaoplus.wechathelper.wechat.message.request.massspeed.MassSpeedRequest;
 import top.jinhaoplus.wechathelper.wechat.message.request.massstatus.MassStatusRequest;
 import top.jinhaoplus.wechathelper.wechat.message.response.*;
 import top.jinhaoplus.wechathelper.wechat.utils.JsonUtil;
@@ -255,4 +257,25 @@ public class MessageAPI extends ServiceAPI {
         return response;
     }
 
+
+    /**
+     * 控制群发速度
+     *
+     * @param accessToken
+     * @param massSpeed   群发速度
+     *                    0	80w/分钟
+     *                    1	60w/分钟
+     *                    2	45w/分钟
+     *                    3	30w/分钟
+     *                    4	10w/分钟
+     * @return
+     * @throws IOException
+     */
+    public static MassSpeedResponse setMassSendSpeed(String accessToken, MassSpeed massSpeed) throws IOException {
+        String url = formatUrl(wechatProperties.getProperty("url.message.massspeed"), new String[]{accessToken});
+        MassSpeedRequest request = new MassSpeedRequest(massSpeed);
+
+        MassSpeedResponse response = invokeAPI(url, ApiMethod.POST, MassSpeedResponse.class, JsonUtil.bean2str(request));
+        return response;
+    }
 }

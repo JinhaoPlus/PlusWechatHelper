@@ -1,7 +1,7 @@
 package top.jinhaoplus.wechathelper.wechat.message.request.masssend;
 
-import top.jinhaoplus.wechathelper.wechat.message.models.masssend.MassSendMessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.masssend.MediaMassSendContent;
+import top.jinhaoplus.wechathelper.wechat.message.entity.masssend.MassSendMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.entity.masssend.MediaMassSendContent;
 
 public class VoiceMassSendRequest extends MassSendRequest {
 

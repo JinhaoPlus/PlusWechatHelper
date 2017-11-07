@@ -1,7 +1,7 @@
 package top.jinhaoplus.wechathelper.wechat.message.request.masspreview;
 
-import top.jinhaoplus.wechathelper.wechat.message.models.masssend.MassSendMessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.masssend.TextMassSendContent;
+import top.jinhaoplus.wechathelper.wechat.message.entity.masssend.MassSendMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.entity.masssend.TextMassSendContent;
 
 public class TextMassPreviewRequest extends MassPreviewRequest {
 

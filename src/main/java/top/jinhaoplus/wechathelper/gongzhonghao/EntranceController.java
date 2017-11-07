@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import top.jinhaoplus.wechathelper.wechat.basic.BasicAPI;
 import top.jinhaoplus.wechathelper.wechat.message.handlers.ControlHandler;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.PassiveMessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveMessage;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.data.*;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.PassiveMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.data.*;
 import top.jinhaoplus.wechathelper.wechat.utils.JaxbXmlUtil;
 
 import javax.annotation.Resource;

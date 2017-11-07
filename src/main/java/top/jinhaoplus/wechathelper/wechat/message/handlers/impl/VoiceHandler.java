@@ -1,8 +1,8 @@
 package top.jinhaoplus.wechathelper.wechat.message.handlers.impl;
 
 import top.jinhaoplus.wechathelper.wechat.message.handlers.ControlHandler;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.PassiveMessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.data.ReceiveVoiceMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.PassiveMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.data.ReceiveVoiceMessage;
 import top.jinhaoplus.wechathelper.wechat.message.replyers.impl.InternalReceiveVoiceReplyer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

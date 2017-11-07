@@ -2,7 +2,8 @@ package top.jinhaoplus.wechathelper.wechat.message;
 
 import org.junit.Test;
 import top.jinhaoplus.wechathelper.wechat.basic.BasicAPI;
-import top.jinhaoplus.wechathelper.wechat.message.models.masssend.MassSendMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.entity.masssend.MassSendMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.request.massspeed.MassSpeed;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ public class MessageAPITest {
 
     @Test
     public void massSendByTag() throws Exception {
-        MessageAPI.massSendByTag(BasicAPI.getAccessTokenStr(), MassSendMessageType.text, "你好CCCCCC", 102);
+        MessageAPI.massSendByTag(BasicAPI.getAccessTokenStr(), MassSendMessageType.text, "你好哈CCC", 102);
 //        MessageAPI.massSendByTag(BasicAPI.getAccessTokenStr(), MassSendMessageType.image, "TfyMrCu3iSoUpqscSAt-3XGCmmuanPsBs_qD1vEt1kk", 102);
     }
 
@@ -41,6 +42,11 @@ public class MessageAPITest {
     @Test
     public void getMassSendStatus() throws Exception {
         MessageAPI.getMassSendStatus(BasicAPI.getAccessTokenStr(), 3147483654L);
+    }
+
+    @Test
+    public void setMassSendSpeed() throws Exception {
+        MessageAPI.setMassSendSpeed(BasicAPI.getAccessTokenStr(), MassSpeed.MASS_SPEED4);
     }
 
 }

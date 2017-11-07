@@ -1,8 +1,8 @@
 package top.jinhaoplus.wechathelper.wechat.message.handlers.impl;
 
 import top.jinhaoplus.wechathelper.wechat.message.handlers.ControlHandler;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.PassiveMessageType;
-import top.jinhaoplus.wechathelper.wechat.message.models.passive.receive.ReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.PassiveMessageType;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveEventMessage;
 import top.jinhaoplus.wechathelper.wechat.message.replyers.impl.InternalEventReplyer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
