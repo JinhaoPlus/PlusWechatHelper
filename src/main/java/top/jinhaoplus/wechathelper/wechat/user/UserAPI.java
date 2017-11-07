@@ -6,14 +6,27 @@ import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.user.entity.User;
-import top.jinhaoplus.wechathelper.wechat.user.request.TagRequest;
-import top.jinhaoplus.wechathelper.wechat.user.request.UserTagRequest;
-import top.jinhaoplus.wechathelper.wechat.user.request.UserTaglistRequest;
+import top.jinhaoplus.wechathelper.wechat.user.request.*;
 import top.jinhaoplus.wechathelper.wechat.user.response.*;
 
 import java.util.List;
 
 public class UserAPI extends ServiceAPI {
+
+    /**
+     * 设置用户备注名
+     *
+     * @param accessToken accessToken
+     * @param openId      user在公众号的openId
+     * @param remark      设置或更新的备注名
+     * @return
+     */
+    public static APIResponse updateUserRemark(String accessToken, String openId, String remark) {
+        RemarkRequest request = new RemarkRequest(openId, remark);
+        String url = formatUrl(wechatProperties.getProperty("url.user.remark"), new String[]{accessToken});
+        APIResponse response = invokeAPI(url, ApiMethod.POST, APIResponse.class, request);
+        return response;
+    }
 
     /**
      * 获取关注本公众号的所有用户
@@ -53,6 +66,21 @@ public class UserAPI extends ServiceAPI {
         return user;
     }
 
+
+    /**
+     * 批量获取用户基本信息
+     *
+     * @param accessToken accessToken
+     * @param openIds     需要获取信息的用户的openId列表
+     * @param language    国家地区语言版本，zh_CN 简体，zh_TW 繁体，en 英语，设null则默认为zh-CN
+     * @return
+     */
+    public static List<User> getBatchUsers(String accessToken, List<String> openIds, UserLanguage language) {
+        BatchUsersRequest request = new BatchUsersRequest(openIds, language);
+        String url = formatUrl(wechatProperties.getProperty("url.user.usersinfo"), new String[]{accessToken});
+        BatchUsersResponse response = invokeAPI(url, ApiMethod.POST, BatchUsersResponse.class, request);
+        return response.getUser_info_list();
+    }
 
     /**
      * 创建标签

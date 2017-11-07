@@ -4,24 +4,37 @@ import org.junit.Test;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.basic.BasicAPI;
 import top.jinhaoplus.wechathelper.wechat.user.entity.User;
-import top.jinhaoplus.wechathelper.wechat.user.response.TagCreateResponse;
-import top.jinhaoplus.wechathelper.wechat.user.response.TagUsersResponse;
-import top.jinhaoplus.wechathelper.wechat.user.response.TagsGetResponse;
-import top.jinhaoplus.wechathelper.wechat.user.response.UserTaglistResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserAPITest {
+    @Test
+    public void updateUserRemark() throws Exception {
+        UserAPI.updateUserRemark(BasicAPI.getAccessTokenStr(),"oAW2LwoBlpy5B21ENtqn_q5zvIQA","DEV");
+    }
 
     @Test
     public void getUsers() throws Exception {
+        UsersResponse response = UserAPI.getUsers(BasicAPI.getAccessTokenStr());
+        System.out.println(response);
     }
 
     @Test
     public void getUser() throws Exception {
         User user = UserAPI.getUser(BasicAPI.getAccessTokenStr(), "oAW2LwoBlpy5B21ENtqn_q5zvIQA");
         System.out.println(user);
+    }
+
+    @Test
+    public void getBatchUsers() throws Exception {
+        UserAPI.getBatchUsers(BasicAPI.getAccessTokenStr(), new ArrayList<String>() {{
+            add("oAW2LwoBlpy5B21ENtqn_q5zvIQA");
+            add("oAW2Lwo6W8UPA8XpvkqoG4ED2PJU");
+            add("oAW2LwuROOjVpKJLGZlVEaq0h60c");
+            add("oAW2LwlBdSvgD1TwF747c_PJRCDw");
+        }}, null);
     }
 
     @Test

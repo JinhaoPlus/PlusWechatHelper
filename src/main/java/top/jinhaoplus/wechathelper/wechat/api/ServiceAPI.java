@@ -12,6 +12,10 @@ import top.jinhaoplus.wechathelper.wechat.utils.SysConfig;
 
 import java.util.Properties;
 
+
+/**
+ * 微信接口内部调用
+ */
 public class ServiceAPI {
     private static Logger logger = Logger.getLogger(top.jinhaoplus.wechathelper.wechat.api.ServiceAPI.class);
     private static String loggerHeader = "[微信接口调用日志]";
@@ -24,10 +28,11 @@ public class ServiceAPI {
 
     /**
      * API内部调用方法：content-type默认使用application/json;charset=UTF-8
-     * @param apiUrl
-     * @param apiMethod
-     * @param responseType
-     * @param entity
+     *
+     * @param apiUrl       API接口url
+     * @param apiMethod    API调用方法
+     * @param responseType 返回类型
+     * @param entity       传入实体
      * @param <T>
      * @return
      */
@@ -38,15 +43,18 @@ public class ServiceAPI {
 
     /**
      * 灵活的API内部调用方法，可自行指定content-type
-     * @param apiUrl
-     * @param apiMethod
-     * @param responseType
-     * @param entity
-     * @param mediaType
+     *
+     * @param apiUrl       API接口url
+     * @param apiMethod    API调用方法
+     * @param responseType 返回类型
+     * @param entity       传入实体
+     * @param mediaType    实体类型
      * @param <T>
      * @return
      */
     protected static synchronized <T extends APIResponse> T invokeAPI(String apiUrl, ApiMethod apiMethod, Class<T> responseType, Object entity, MediaType mediaType) {
+        logger.debug(loggerHeader + "开始调用微信接口");
+        logger.debug(loggerHeader + apiMethod.toString() + "  " + apiUrl);
         APIResponse response = new APIResponse();
         String plainResponse;
         HttpHeaders headers = new HttpHeaders();
@@ -57,13 +65,14 @@ public class ServiceAPI {
                     plainResponse = client.getForEntity(apiUrl, String.class).getBody();
                     response = JsonUtil.str2bean(plainResponse, responseType);
                 } else if (ApiMethod.POST.equals(apiMethod)) {
+                    logger.debug(loggerHeader + "微信接口传入的参数是\n" + JsonUtil.bean2str(entity));
                     // HttpEntity即为需要发送的消息实体
                     HttpEntity<Object> requestEntity = new HttpEntity<>(entity, headers);
                     plainResponse = client.postForEntity(apiUrl, requestEntity, String.class).getBody();
-                    System.out.println(plainResponse);
+                    logger.debug(loggerHeader + "微信接口返回结果的结果是\n" + plainResponse);
                     response = JsonUtil.str2bean(plainResponse, responseType);
                 }
-                logger.info(loggerHeader + "接口调用成功");
+                logger.debug(loggerHeader + "接口调用成功");
                 response.setAquired(true);
                 return (T) response;
             } catch (Exception e) {
