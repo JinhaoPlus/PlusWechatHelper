@@ -6,8 +6,21 @@ import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.user.entity.User;
-import top.jinhaoplus.wechathelper.wechat.user.request.*;
-import top.jinhaoplus.wechathelper.wechat.user.response.*;
+import top.jinhaoplus.wechathelper.wechat.user.request.blacklist.BlackListRequest;
+import top.jinhaoplus.wechathelper.wechat.user.request.blacklist.BlackRequest;
+import top.jinhaoplus.wechathelper.wechat.user.request.tag.TagRequest;
+import top.jinhaoplus.wechathelper.wechat.user.request.tag.UserTagRequest;
+import top.jinhaoplus.wechathelper.wechat.user.request.tag.UserTaglistRequest;
+import top.jinhaoplus.wechathelper.wechat.user.request.user.BatchUsersRequest;
+import top.jinhaoplus.wechathelper.wechat.user.request.user.RemarkRequest;
+import top.jinhaoplus.wechathelper.wechat.user.request.user.UserLanguage;
+import top.jinhaoplus.wechathelper.wechat.user.response.tag.TagCreateResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.tag.TagUsersResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.tag.TagsGetResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.tag.UserTaglistResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.user.BatchUsersResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.user.UserResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.user.UsersResponse;
 
 import java.util.List;
 
@@ -194,6 +207,60 @@ public class UserAPI extends ServiceAPI {
         UserTaglistRequest request = new UserTaglistRequest(openId);
         String url = formatUrl(wechatProperties.getProperty("url.user.gettaglist"), new String[]{accessToken});
         UserTaglistResponse response = invokeAPI(url, ApiMethod.POST, UserTaglistResponse.class, request);
+        return response;
+    }
+
+
+    /**
+     * 获取公众号的黑名单列表
+     *
+     * @param accessToken accessToken
+     * @return
+     */
+    public static UsersResponse getBlackListUsers(String accessToken) {
+        String url = formatUrl(wechatProperties.getProperty("url.user.getblacklist"), new String[]{accessToken});
+        BlackListRequest request = new BlackListRequest("");
+        UsersResponse collectedUsersResponse = new UsersResponse();
+        while (true) {
+            UsersResponse usersResponse = invokeAPI(url, ApiMethod.POST, UsersResponse.class, request);
+            collectedUsersResponse.setTotal(usersResponse.getTotal());
+            collectedUsersResponse.setAquired(usersResponse.getAquired());
+            if (request.getBegin_openid().equals(usersResponse.getNext_openid())) {
+                break;
+            }
+            collectedUsersResponse.getData().getOpenid().addAll(usersResponse.getData().getOpenid());
+            request = new BlackListRequest(usersResponse.getNext_openid());
+            url = formatUrl(wechatProperties.getProperty("url.user.getblacklist"), new String[]{accessToken});
+        }
+        return collectedUsersResponse;
+    }
+
+
+    /**
+     * 拉黑用户
+     *
+     * @param accessToken accessToken
+     * @param openIdList  需要批量拉黑的一批openId
+     * @return
+     */
+    public static APIResponse addToBlackList(String accessToken, List<String> openIdList) {
+        BlackRequest request = new BlackRequest(openIdList);
+        String url = formatUrl(wechatProperties.getProperty("url.user.batchblacklist"), new String[]{accessToken});
+        APIResponse response = invokeAPI(url, ApiMethod.POST, APIResponse.class, request);
+        return response;
+    }
+
+    /**
+     * 取消拉黑用户
+     *
+     * @param accessToken accessToken
+     * @param openIdList  需要批量拉黑的一批openId
+     * @return
+     */
+    public static APIResponse unBlackList(String accessToken, List<String> openIdList) {
+        BlackRequest request = new BlackRequest(openIdList);
+        String url = formatUrl(wechatProperties.getProperty("url.user.batchunblacklist"), new String[]{accessToken});
+        APIResponse response = invokeAPI(url, ApiMethod.POST, APIResponse.class, request);
         return response;
     }
 

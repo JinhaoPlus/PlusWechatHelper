@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.user.request;
+package top.jinhaoplus.wechathelper.wechat.user.request.tag;
 
 public class UserTaglistRequest {
     private String openid;

@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.user.request;
+package top.jinhaoplus.wechathelper.wechat.user.request.user;
 
 import java.util.ArrayList;
 import java.util.HashMap;

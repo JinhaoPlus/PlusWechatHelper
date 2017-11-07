@@ -1,8 +1,6 @@
-package top.jinhaoplus.wechathelper.wechat.user.response;
+package top.jinhaoplus.wechathelper.wechat.user.response.tag;
 
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
-
-import java.util.List;
 
 public class TagUsersResponse extends APIResponse {
     private Integer count;
@@ -34,14 +32,3 @@ public class TagUsersResponse extends APIResponse {
     }
 }
 
-class TagUsersData{
-    private List<String> openid;
-
-    public List<String> getOpenid() {
-        return openid;
-    }
-
-    public void setOpenid(List<String> openid) {
-        this.openid = openid;
-    }
-}

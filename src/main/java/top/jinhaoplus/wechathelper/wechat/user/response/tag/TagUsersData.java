@@ -1,10 +1,9 @@
-package top.jinhaoplus.wechathelper.wechat.user.response;
+package top.jinhaoplus.wechathelper.wechat.user.response.tag;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Openids{
-    private List<String> openid = new ArrayList<>();
+public class TagUsersData{
+    private List<String> openid;
 
     public List<String> getOpenid() {
         return openid;

@@ -4,12 +4,17 @@ import org.junit.Test;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.basic.BasicAPI;
 import top.jinhaoplus.wechathelper.wechat.user.entity.User;
-import top.jinhaoplus.wechathelper.wechat.user.response.*;
+import top.jinhaoplus.wechathelper.wechat.user.response.tag.TagCreateResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.tag.TagUsersResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.tag.TagsGetResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.tag.UserTaglistResponse;
+import top.jinhaoplus.wechathelper.wechat.user.response.user.UsersResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserAPITest {
+
     @Test
     public void updateUserRemark() throws Exception {
         UserAPI.updateUserRemark(BasicAPI.getAccessTokenStr(),"oAW2LwoBlpy5B21ENtqn_q5zvIQA","DEV");
@@ -89,5 +94,25 @@ public class UserAPITest {
     public void getUserTaglist() throws Exception {
         UserTaglistResponse response = UserAPI.getUserTaglist(BasicAPI.getAccessTokenStr(), "oAW2LwoBlpy5B21ENtqn_q5zvIQA");
         System.out.println(response);
+    }
+
+    @Test
+    public void getBlackListUsers() throws Exception {
+        UsersResponse response = UserAPI.getBlackListUsers(BasicAPI.getAccessTokenStr());
+        System.out.println(response);
+    }
+
+    @Test
+    public void addToBlackList() throws Exception {
+        UserAPI.addToBlackList(BasicAPI.getAccessTokenStr(),new ArrayList<String>(){{
+            add("oAW2LwoBlpy5B21ENtqn_q5zvIQA");
+        }});
+    }
+
+    @Test
+    public void unBlackList() throws Exception {
+        UserAPI.addToBlackList(BasicAPI.getAccessTokenStr(),new ArrayList<String>(){{
+            add("oAW2LwoBlpy5B21ENtqn_q5zvIQA");
+        }});
     }
 }

@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.user.request;
+package top.jinhaoplus.wechathelper.wechat.user.request.user;
 
 public class RemarkRequest {
     private String openid;

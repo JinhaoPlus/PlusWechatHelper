@@ -1,11 +1,11 @@
-package top.jinhaoplus.wechathelper.wechat.user.response;
+package top.jinhaoplus.wechathelper.wechat.user.response.user;
 
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 
 public class UsersResponse extends APIResponse {
     private Long total;
     private Long count;
-    private Openids data = new Openids();
+    private OpenIds data = new OpenIds();
     private String next_openid;
 
     public Long getTotal() {
@@ -24,11 +24,11 @@ public class UsersResponse extends APIResponse {
         this.count = count;
     }
 
-    public Openids getData() {
+    public OpenIds getData() {
         return data;
     }
 
-    public void setData(Openids data) {
+    public void setData(OpenIds data) {
         this.data = data;
     }
 
@@ -40,4 +40,3 @@ public class UsersResponse extends APIResponse {
         this.next_openid = next_openid;
     }
 }
-

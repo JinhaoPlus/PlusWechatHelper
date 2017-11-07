@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.user.request;
+package top.jinhaoplus.wechathelper.wechat.user.request.tag;
 
 import top.jinhaoplus.wechathelper.wechat.user.entity.Tag;
 

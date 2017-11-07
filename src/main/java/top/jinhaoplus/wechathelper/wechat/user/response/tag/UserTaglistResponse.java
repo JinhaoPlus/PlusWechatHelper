@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.user.response;
+package top.jinhaoplus.wechathelper.wechat.user.response.tag;
 
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 
