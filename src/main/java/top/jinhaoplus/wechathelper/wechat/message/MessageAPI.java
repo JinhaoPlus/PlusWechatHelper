@@ -5,14 +5,12 @@ import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.message.entity.masssend.*;
-import top.jinhaoplus.wechathelper.wechat.message.entity.template.Industry;
 import top.jinhaoplus.wechathelper.wechat.message.entity.template.IndustrySetRequest;
 import top.jinhaoplus.wechathelper.wechat.message.entity.template.TemplateDeleteRequest;
 import top.jinhaoplus.wechathelper.wechat.message.entity.template.TemplateSendRequest;
 import top.jinhaoplus.wechathelper.wechat.message.request.massdelete.MassDeleteRequest;
 import top.jinhaoplus.wechathelper.wechat.message.request.masspreview.*;
 import top.jinhaoplus.wechathelper.wechat.message.request.masssend.*;
-import top.jinhaoplus.wechathelper.wechat.message.request.massspeed.MassSpeed;
 import top.jinhaoplus.wechathelper.wechat.message.request.massspeed.MassSpeedRequest;
 import top.jinhaoplus.wechathelper.wechat.message.request.massstatus.MassStatusRequest;
 import top.jinhaoplus.wechathelper.wechat.message.response.*;
@@ -31,7 +29,7 @@ public class MessageAPI extends ServiceAPI {
      * @return
      * @throws IOException
      */
-    public static APIResponse setIndustry(String accessToken, Industry primaryIndustry, Industry secondaryIndustry) throws IOException {
+    public static APIResponse setIndustry(String accessToken, IndustrySetRequest.Industry primaryIndustry, IndustrySetRequest.Industry secondaryIndustry) throws IOException {
         String url = formatUrl(wechatProperties.getProperty("url.message.setindustry"), new String[]{accessToken});
         IndustrySetRequest request = new IndustrySetRequest(primaryIndustry.getIndustryCode(), secondaryIndustry.getIndustryCode());
         APIResponse response = invokeAPI(url, ApiMethod.POST, APIResponse.class, JsonUtil.bean2str(request));
@@ -271,7 +269,7 @@ public class MessageAPI extends ServiceAPI {
      * @return
      * @throws IOException
      */
-    public static MassSpeedResponse setMassSendSpeed(String accessToken, MassSpeed massSpeed) throws IOException {
+    public static MassSpeedResponse setMassSendSpeed(String accessToken, MassSpeedRequest.MassSpeed massSpeed) throws IOException {
         String url = formatUrl(wechatProperties.getProperty("url.message.massspeed"), new String[]{accessToken});
         MassSpeedRequest request = new MassSpeedRequest(massSpeed);
 

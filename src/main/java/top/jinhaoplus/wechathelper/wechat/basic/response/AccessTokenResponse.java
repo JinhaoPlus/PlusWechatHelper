@@ -16,6 +16,14 @@ public class AccessTokenResponse extends APIResponse {
      */
     private Integer expires_in;
 
+    public AccessTokenResponse() {
+    }
+
+    public AccessTokenResponse(String access_token, Integer expires_in) {
+        this.access_token = access_token;
+        this.expires_in = expires_in;
+    }
+
     public String getAccess_token() {
         return access_token;
     }

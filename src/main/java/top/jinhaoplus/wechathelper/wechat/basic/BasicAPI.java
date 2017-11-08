@@ -10,6 +10,7 @@ import top.jinhaoplus.wechathelper.wechat.utils.SecurityUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class BasicAPI extends ServiceAPI {
@@ -44,27 +45,66 @@ public class BasicAPI extends ServiceAPI {
     }
 
     /**
-     * 获取accessToken实体
+     * 重新获取最新的获取accessToken实体
      *
      * @return accessToken实体
      */
-    public static AccessTokenResponse getAccessToken() {
+    private static AccessTokenResponse getRefreshAccessToken() {
         String url = formatUrl(wechatProperties.getProperty("url.basic.accesstoken"), new String[]{appId, appSecret});
         AccessTokenResponse accessTokenResponse = invokeAPI(url, ApiMethod.GET, AccessTokenResponse.class, null);
         return accessTokenResponse;
     }
 
     /**
-     * 获取accessToken字符串
+     * 获取accessToken实体, 可能是之前获取的未过期的accessToken
+     *
+     * @return accessToken实体
+     */
+    public static AccessTokenResponse getAccessToken() {
+        AccessTokenResponse accessTokenResponse = null;
+        // 若之前未生成过accessToken则重新生成
+        if (StringUtils.isBlank(runtimeProperties.getProperty("runtime.accesstoken_generate")) || StringUtils.isBlank(runtimeProperties.getProperty("runtime.accesstoken_expiresin"))) {
+            accessTokenResponse = getRefreshAccessToken();
+        } else {
+            String accessToken = runtimeProperties.getProperty("runtime.accesstoken");
+            Date generate = new Date(Long.valueOf(runtimeProperties.getProperty("runtime.accesstoken_generate")));
+            Integer expiresIn = Integer.valueOf(runtimeProperties.getProperty("runtime.accesstoken_expiresin"));
+            // 判断之前的accessToken是否过期, 若已过期则重新获取
+            if (isExpired(generate, expiresIn)) {
+                accessTokenResponse = getRefreshAccessToken();
+            }
+            // 未过期则使用之前的accessToken
+            else
+                return new AccessTokenResponse(accessToken, expiresIn);
+        }
+
+        runtimeProperties.setProperty("runtime.accesstoken", accessTokenResponse.getAccess_token());
+        runtimeProperties.setProperty("runtime.accesstoken_generate", String.valueOf(System.currentTimeMillis()));
+        runtimeProperties.setProperty("runtime.accesstoken_expiresin", String.valueOf(accessTokenResponse.getExpires_in()));
+        return accessTokenResponse;
+
+    }
+
+    /**
+     * 判断现在的accessToken是否已经过期
+     *
+     * @param then      上次生成accessToken的时间
+     * @param expiresIn 过期时间(seconds)
+     * @return
+     */
+    private static boolean isExpired(Date then, Integer expiresIn){
+        Date now = new Date();
+        Date expirePoint = new Date(then.getTime() + expiresIn * 1000);
+        return now.after(expirePoint);
+    }
+
+    /**
+     * 获取accessToken字符串, 可能是之前获取的未过期的accessToken
      *
      * @return accessToken字符串
      */
     public static String getAccessTokenStr() {
-        String url = formatUrl(wechatProperties.getProperty("url.basic.accesstoken"), new String[]{appId, appSecret});
-        AccessTokenResponse accessTokenResponse = invokeAPI(url, ApiMethod.GET, AccessTokenResponse.class, null);
-        if (accessTokenResponse != null)
-            return accessTokenResponse.getAccess_token();
-        throw new WechatAPIException("AccessToken获取失败");
+        return getAccessToken().getAccess_token();
     }
 
     /**

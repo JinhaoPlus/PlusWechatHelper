@@ -8,9 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 import top.jinhaoplus.wechathelper.wechat.utils.JsonUtil;
-import top.jinhaoplus.wechathelper.wechat.utils.SysConfig;
-
-import java.util.Properties;
+import top.jinhaoplus.wechathelper.wechat.utils.RuntimeConfig;
 
 
 /**
@@ -22,7 +20,8 @@ public class ServiceAPI {
 
     private static RestTemplate client = WeChatRestClient.getInstance();
 
-    protected final static Properties wechatProperties = SysConfig.getProperties("wechat.properties");
+    protected final static RuntimeConfig wechatProperties = new RuntimeConfig("wechat.properties");
+    protected final static RuntimeConfig runtimeProperties = new RuntimeConfig("runtime.properties");
     protected final static String appId = wechatProperties.getProperty("service.appid");
     protected final static String appSecret = wechatProperties.getProperty("service.appsecret");
 
@@ -63,6 +62,7 @@ public class ServiceAPI {
             try {
                 if (ApiMethod.GET.equals(apiMethod)) {
                     plainResponse = client.getForEntity(apiUrl, String.class).getBody();
+                    logger.debug(loggerHeader + "微信接口返回结果的结果是\n" + plainResponse);
                     response = JsonUtil.str2bean(plainResponse, responseType);
                 } else if (ApiMethod.POST.equals(apiMethod)) {
                     logger.debug(loggerHeader + "微信接口传入的参数是\n" + JsonUtil.bean2str(entity));

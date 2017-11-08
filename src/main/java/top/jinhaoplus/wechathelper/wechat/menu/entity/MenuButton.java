@@ -15,7 +15,8 @@ public class MenuButton {
         pic_weixin("pic_weixin"),
         location_select("location_select"),
         media_id("media_id"),
-        view_limited("view_limited");
+        view_limited("view_limited"),
+        miniprogram("miniprogram");
 
         private String typeValue;
 
@@ -32,6 +33,12 @@ public class MenuButton {
     private MenuButtonType type;
     private String key;
     private String url;
+    private String media_id;
+
+    // 当MenuButtonType为小程序时需要的字段
+    private String appid;
+    private String pagepath;
+
     private List<MenuButton> sub_button = new ArrayList<MenuButton>();
 
     public String getName() {
@@ -66,6 +73,30 @@ public class MenuButton {
         this.url = url;
     }
 
+    public String getMedia_id() {
+        return media_id;
+    }
+
+    public void setMedia_id(String media_id) {
+        this.media_id = media_id;
+    }
+
+    public String getAppid() {
+        return appid;
+    }
+
+    public void setAppid(String appid) {
+        this.appid = appid;
+    }
+
+    public String getPagepath() {
+        return pagepath;
+    }
+
+    public void setPagepath(String pagepath) {
+        this.pagepath = pagepath;
+    }
+
     public List<MenuButton> getSub_button() {
         return sub_button;
     }
@@ -76,6 +107,29 @@ public class MenuButton {
 
     public MenuButton() {
     }
+
+    public MenuButton(String name) {
+        this.name = name;
+    }
+
+    public MenuButton(String name, MenuButtonType type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    public MenuButton(String name, MenuButtonType type, String key) {
+        this.name = name;
+        this.type = type;
+        this.key = key;
+    }
+
+
+    public MenuButton(String name, String media_id) {
+        this.name = name;
+        this.type = MenuButtonType.media_id;
+        this.media_id = media_id;
+    }
+
 
     public MenuButton(String name, MenuButtonType type, String key, String url) {
         this.name = name;

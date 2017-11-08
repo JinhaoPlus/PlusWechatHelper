@@ -3,7 +3,7 @@ package top.jinhaoplus.wechathelper.wechat.message;
 import org.junit.Test;
 import top.jinhaoplus.wechathelper.wechat.basic.BasicAPI;
 import top.jinhaoplus.wechathelper.wechat.message.entity.masssend.MassSendMessageType;
-import top.jinhaoplus.wechathelper.wechat.message.request.massspeed.MassSpeed;
+import top.jinhaoplus.wechathelper.wechat.message.request.massspeed.MassSpeedRequest;
 
 import java.util.ArrayList;
 
@@ -46,7 +46,7 @@ public class MessageAPITest {
 
     @Test
     public void setMassSendSpeed() throws Exception {
-        MessageAPI.setMassSendSpeed(BasicAPI.getAccessTokenStr(), MassSpeed.MASS_SPEED4);
+        MessageAPI.setMassSendSpeed(BasicAPI.getAccessTokenStr(), MassSpeedRequest.MassSpeed.MASS_SPEED4);
     }
 
 }

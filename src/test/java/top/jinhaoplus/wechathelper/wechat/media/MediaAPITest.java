@@ -115,7 +115,7 @@ public class MediaAPITest {
 
     @Test
     public void getNews() throws Exception {
-        NewsGetResponse response = MediaAPI.getNews(BasicAPI.getAccessTokenStr(), "TfyMrCu3iSoUpqscSAt-3Xb-EmFL_UJDC4-Vwc9-RCk");
+        NewsGetResponse response = MediaAPI.getNews(BasicAPI.getAccessTokenStr(), "TfyMrCu3iSoUpqscSAt-3R6voD65VvmaOC3waBLFbn8");
         System.out.println(response);
     }
 
