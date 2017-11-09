@@ -2,11 +2,11 @@ package top.jinhaoplus.wechathelper.gongzhonghao.serviceReplyer;
 
 import org.springframework.stereotype.Component;
 import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.ReceiveLocationReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.ReceiveQRCodeReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.ReceiveSubUnsubReceiveEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.ReceiveTemplateJobFinishEventMessage;
-import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.massSendJobFinishEvent.ReceiveMassSendJobFinishEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.commonevent.ReceiveLocationReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.commonevent.ReceiveQRCodeReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.commonevent.ReceiveSubUnsubReceiveEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.jobevent.ReceiveTemplateJobFinishEventMessage;
+import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.jobevent.ReceiveMassSendJobFinishEventMessage;
 import top.jinhaoplus.wechathelper.wechat.message.entity.passive.send.SendMessage;
 import top.jinhaoplus.wechathelper.wechat.message.entity.passive.send.data.text.SendTextMessage;
 import top.jinhaoplus.wechathelper.wechat.message.replyers.impl.InternalEventReplyer;

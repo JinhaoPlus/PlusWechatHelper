@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event;
+package top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.commonevent;
 
 import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveEventMessage;
 
@@ -10,10 +10,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "xml")
-public class ReceiveCustomizedMenuReceiveEventMessage extends ReceiveEventMessage {
+public class ReceiveQRCodeReceiveEventMessage extends ReceiveEventMessage {
 
     @XmlElement(name = "EventKey")
     private String eventKey;
+
+    @XmlElement(name = "Ticket")
+    private String ticket;
 
     public String getEventKey() {
         return eventKey;
@@ -21,5 +24,13 @@ public class ReceiveCustomizedMenuReceiveEventMessage extends ReceiveEventMessag
 
     public void setEventKey(String eventKey) {
         this.eventKey = eventKey;
+    }
+
+    public String getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
     }
 }

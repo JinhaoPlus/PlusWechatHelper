@@ -11,7 +11,7 @@ public class BasicAPITest {
 
     @Test
     public void getAccessTokenStr() throws Exception {
-        BasicAPI.getAccessTokenStr();
+        System.out.println(BasicAPI.getAccessTokenStr());
     }
 
     @Test

@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event;
+package top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.event.jobevent;
 
 
 import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveEventMessage;

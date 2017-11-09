@@ -111,7 +111,7 @@ public class UserAPITest {
 
     @Test
     public void unBlackList() throws Exception {
-        UserAPI.addToBlackList(BasicAPI.getAccessTokenStr(),new ArrayList<String>(){{
+        UserAPI.unBlackList(BasicAPI.getAccessTokenStr(),new ArrayList<String>(){{
             add("oAW2LwoBlpy5B21ENtqn_q5zvIQA");
         }});
     }

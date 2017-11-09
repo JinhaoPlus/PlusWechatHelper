@@ -5,13 +5,13 @@ import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
 
 public class TemplateMsgSendResponse extends APIResponse {
 
-    private Integer msgid;
+    private Long msgid;
 
-    public Integer getMsgid() {
+    public Long getMsgid() {
         return msgid;
     }
 
-    public void setMsgid(Integer msgid) {
+    public void setMsgid(Long msgid) {
         this.msgid = msgid;
     }
 }
