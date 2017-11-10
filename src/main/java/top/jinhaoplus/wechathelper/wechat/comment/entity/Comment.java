@@ -13,7 +13,7 @@ public class Comment {
     //评论内容
     private String content;
 
-    //是否精选评论，0为即非精选，1为true，即精选
+    //是否精选评论,0为即非精选,1为true,即精选
     private Integer comment_type;
 
     private Reply reply;

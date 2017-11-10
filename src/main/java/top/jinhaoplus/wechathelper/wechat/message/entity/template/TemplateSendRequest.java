@@ -9,7 +9,7 @@ public class TemplateSendRequest {
     private String template_id;
     //模板跳转链接
     private String url;
-    //跳小程序所需数据，不需跳小程序可不用传该数据
+    //跳小程序所需数据,不需跳小程序可不用传该数据
     private MiniProgram miniprogram;
     //模板数据
     private Map<String, TemplateDataItem> data;

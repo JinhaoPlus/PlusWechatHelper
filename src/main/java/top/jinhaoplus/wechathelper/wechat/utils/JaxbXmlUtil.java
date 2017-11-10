@@ -45,7 +45,7 @@ public class JaxbXmlUtil {
         try {
             JAXBContext context = JAXBContext.newInstance(obj.getClass());
             Marshaller marshaller = context.createMarshaller();
-            //决定是否在转换成xml时同时进行格式化（即按标签自动换行，否则即是一行的xml）
+            //决定是否在转换成xml时同时进行格式化(即按标签自动换行,否则即是一行的xml)
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             //Marshaller.JAXB_ENCODING xml的编码方式
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "utf-8");

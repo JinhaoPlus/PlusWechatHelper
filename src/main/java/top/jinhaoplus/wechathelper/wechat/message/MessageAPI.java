@@ -96,12 +96,12 @@ public class MessageAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param messageType 群发消息的类型
-     *                    [注意]微信测试公众号在发送非文本的群发消息时会收到no permission for this msgtype的错误，尚不清楚此群发类型的限制
-     * @param massContent 群发消息的内容：
+     *                    [注意]微信测试公众号在发送非文本的群发消息时会收到no permission for this msgtype的错误,尚不清楚此群发类型的限制
+     * @param massContent 群发消息的内容:
      *                    若群发文本则直接在此传入文本内容
      *                    若群发图片、语音、视频、图文消息则传入它们的media_id
      *                    若群发卡券则传入卡券编号card_id
-     * @param massSendTag 群发消息的目标用户标签：传空表示不区分标签全部发送
+     * @param massSendTag 群发消息的目标用户标签:传空表示不区分标签全部发送
      * @return
      * @throws IOException
      */
@@ -128,8 +128,8 @@ public class MessageAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param messageType 群发消息的类型
-     *                    [注意]微信测试公众号在发送非文本的群发消息时会收到no permission for this msgtype的错误，尚不清楚此群发类型的限制
-     * @param massContent 群发消息的内容：
+     *                    [注意]微信测试公众号在发送非文本的群发消息时会收到no permission for this msgtype的错误,尚不清楚此群发类型的限制
+     * @param massContent 群发消息的内容:
      *                    若群发文本则直接在此传入文本内容
      *                    若群发图片、语音、视频、图文消息则传入它们的media_id
      *                    若群发卡券则传入卡券编号card_id
@@ -177,7 +177,7 @@ public class MessageAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param messageType 群发消息的类型
-     * @param massContent 群发消息的内容：
+     * @param massContent 群发消息的内容:
      *                    若群发文本则直接在此传入文本内容
      *                    若群发图片、语音、视频、图文消息则传入它们的media_id
      *                    若群发卡券则传入卡券编号card_id
@@ -222,11 +222,11 @@ public class MessageAPI extends ServiceAPI {
 
     /**
      * 删除群发消息
-     * [注意]删除群发消息只能删除图文消息和视频消息，其他类型的消息一经发送，无法删除
+     * [注意]删除群发消息只能删除图文消息和视频消息,其他类型的消息一经发送,无法删除
      *
      * @param accessToken
      * @param messageId    消息编号
-     * @param articleIndex 若为图文消息，设置要删除的文章在图文消息中的位置，第一篇编号为1，该字段不填或填0会删除全部文章
+     * @param articleIndex 若为图文消息,设置要删除的文章在图文消息中的位置,第一篇编号为1,该字段不填或填0会删除全部文章
      * @return
      * @throws IOException
      */

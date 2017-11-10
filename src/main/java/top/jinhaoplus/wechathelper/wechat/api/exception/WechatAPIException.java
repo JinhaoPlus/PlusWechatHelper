@@ -1,4 +1,4 @@
-package top.jinhaoplus.wechathelper.wechat.exception;
+package top.jinhaoplus.wechathelper.wechat.api.exception;
 
 public class WechatAPIException extends RuntimeException {
 

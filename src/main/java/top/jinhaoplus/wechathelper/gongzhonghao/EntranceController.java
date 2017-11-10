@@ -62,7 +62,7 @@ public class EntranceController {
 
 
     /**
-     * 使用POST方式请求，携带XML数据信息，表示请求用于进行后台处理
+     * 使用POST方式请求,携带XML数据信息,表示请求用于进行后台处理
      *
      * @param request
      * @return

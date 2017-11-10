@@ -5,7 +5,7 @@ public class TemplateDataItem {
     //模板内容
     private String value;
 
-    //模板内容字体颜色，不填默认为黑色
+    //模板内容字体颜色,不填默认为黑色
     private String color;
 
     public TemplateDataItem(String value, String color) {

@@ -26,7 +26,7 @@ public class ServiceAPI {
     protected final static String appSecret = wechatProperties.getProperty("service.appsecret");
 
     /**
-     * API内部调用方法：content-type默认使用application/json;charset=UTF-8
+     * API内部调用方法:content-type默认使用application/json;charset=UTF-8
      *
      * @param apiUrl       API接口url
      * @param apiMethod    API调用方法
@@ -41,7 +41,7 @@ public class ServiceAPI {
     }
 
     /**
-     * 灵活的API内部调用方法，可自行指定content-type
+     * 灵活的API内部调用方法,可自行指定content-type
      *
      * @param apiUrl       API接口url
      * @param apiMethod    API调用方法

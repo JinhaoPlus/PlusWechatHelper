@@ -18,7 +18,7 @@ public class CommentAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param msgDataId   群发返回的msg_data_id
-     * @param index       多图文时，用来指定第几篇图文，从0开始，不带默认操作该msg_data_id的第一篇图文
+     * @param index       多图文时,用来指定第几篇图文,从0开始,不带默认操作该msg_data_id的第一篇图文
      * @return
      * @throws IOException
      */
@@ -34,7 +34,7 @@ public class CommentAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param msgDataId   群发返回的msg_data_id
-     * @param index       多图文时，用来指定第几篇图文，从0开始，不带默认操作该msg_data_id的第一篇图文
+     * @param index       多图文时,用来指定第几篇图文,从0开始,不带默认操作该msg_data_id的第一篇图文
      * @return
      * @throws IOException
      */
@@ -51,7 +51,7 @@ public class CommentAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param msgDataId   群发返回的msg_data_id
-     * @param index       多图文时，用来指定第几篇图文，从0开始，不带默认操作该msg_data_id的第一篇图文
+     * @param index       多图文时,用来指定第几篇图文,从0开始,不带默认操作该msg_data_id的第一篇图文
      * @param type        评论类型
      * @return
      * @throws IOException
@@ -71,7 +71,7 @@ public class CommentAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param msgDataId     群发返回的msg_data_id
-     * @param index         多图文时，用来指定第几篇图文，从0开始，不带默认操作该msg_data_id的第一篇图文
+     * @param index         多图文时,用来指定第几篇图文,从0开始,不带默认操作该msg_data_id的第一篇图文
      * @param userCommentId 用户评论id
      * @return
      * @throws IOException
@@ -88,7 +88,7 @@ public class CommentAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param msgDataId     群发返回的msg_data_id
-     * @param index         多图文时，用来指定第几篇图文，从0开始，不带默认操作该msg_data_id的第一篇图文
+     * @param index         多图文时,用来指定第几篇图文,从0开始,不带默认操作该msg_data_id的第一篇图文
      * @param userCommentId 用户评论id
      * @return
      * @throws IOException
@@ -105,7 +105,7 @@ public class CommentAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param msgDataId     群发返回的msg_data_id
-     * @param index         多图文时，用来指定第几篇图文，从0开始，不带默认操作该msg_data_id的第一篇图文
+     * @param index         多图文时,用来指定第几篇图文,从0开始,不带默认操作该msg_data_id的第一篇图文
      * @param userCommentId 用户评论id
      * @return
      * @throws IOException
@@ -122,7 +122,7 @@ public class CommentAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param msgDataId     群发返回的msg_data_id
-     * @param index         多图文时，用来指定第几篇图文，从0开始，不带默认操作该msg_data_id的第一篇图文
+     * @param index         多图文时,用来指定第几篇图文,从0开始,不带默认操作该msg_data_id的第一篇图文
      * @param userCommentId 用户评论id
      * @param replyContent  回复内容
      * @return
@@ -140,13 +140,13 @@ public class CommentAPI extends ServiceAPI {
      *
      * @param accessToken
      * @param msgDataId     群发返回的msg_data_id
-     * @param index         多图文时，用来指定第几篇图文，从0开始，不带默认操作该msg_data_id的第一篇图文
+     * @param index         多图文时,用来指定第几篇图文,从0开始,不带默认操作该msg_data_id的第一篇图文
      * @param userCommentId 用户评论id
      * @return
      * @throws IOException
      */
     public static APIResponse deleteCommentReply(String accessToken, Long msgDataId, Integer index, Long userCommentId, String replyContent) throws IOException {
-        String url = formatUrl(wechatProperties.getProperty("url.comment.deleteReply"), new String[]{accessToken});
+        String url = formatUrl(wechatProperties.getProperty("url.comment.deletereply"), new String[]{accessToken});
         CommentOperateRequest request = new CommentOperateRequest(msgDataId, index, userCommentId, replyContent);
         APIResponse response = invokeAPI(url, ApiMethod.POST, APIResponse.class, JsonUtil.bean2str(request));
         return response;

@@ -21,7 +21,7 @@ public enum ReceiveEventType {
     VIEW("VIEW"),
     //// 扫码推事件的事件推送
     scancode_push("scancode_push"),
-    //// 扫码推事件且弹出“消息接收中”提示框的事件推送
+    //// 扫码推事件且弹出"消息接收中"提示框的事件推送
     scancode_waitmsg("scancode_waitmsg"),
     //// 弹出系统拍照发图的事件推送
     pic_sysphoto("pic_sysphoto"),

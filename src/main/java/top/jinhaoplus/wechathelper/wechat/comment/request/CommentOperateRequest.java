@@ -4,7 +4,7 @@ public class CommentOperateRequest {
     // 群发返回的msg_data_id
     private Long msg_data_id;
 
-    // 多图文时，用来指定第几篇图文，从0开始
+    // 多图文时,用来指定第几篇图文,从0开始
     // 不带默认操作该msg_data_id的第一篇图文
     private Integer index;
 

@@ -6,7 +6,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
 import top.jinhaoplus.wechathelper.wechat.api.response.APIResponse;
-import top.jinhaoplus.wechathelper.wechat.exception.WechatAPIException;
+import top.jinhaoplus.wechathelper.wechat.api.exception.WechatAPIException;
 import top.jinhaoplus.wechathelper.wechat.media.entity.Mediatype;
 import top.jinhaoplus.wechathelper.wechat.media.request.*;
 import top.jinhaoplus.wechathelper.wechat.media.response.*;
@@ -36,7 +36,7 @@ public class MediaAPI extends ServiceAPI {
     }
 
     /**
-     * 二次上传视频临时素材：获取群发视频消息所需的视频media_id
+     * 二次上传视频临时素材:获取群发视频消息所需的视频media_id
      *
      * @param accessToken
      * @param mediaId     通过addTempMedia接口上传临时视频素材获得的mediaId
@@ -62,8 +62,8 @@ public class MediaAPI extends ServiceAPI {
 
 
     /**
-     * 上传临时图文消息素材：在获取图文消息素材列表接口中无法获取到这一类临时图文消息素材
-     * 图文素材中的封面图片缩略图需使用addTempMedia接口上传临时缩略图，若使用addMaterial上传的永久素材会报错
+     * 上传临时图文消息素材:在获取图文消息素材列表接口中无法获取到这一类临时图文消息素材
+     * 图文素材中的封面图片缩略图需使用addTempMedia接口上传临时缩略图,若使用addMaterial上传的永久素材会报错
      *
      * @param accessToken
      * @param request     组装好的图文消息素材

@@ -24,14 +24,14 @@ public class CommentListRequest {
     // 群发返回的msg_data_id
     private Long msg_data_id;
 
-    // 多图文时，用来指定第几篇图文，从0开始
+    // 多图文时,用来指定第几篇图文,从0开始
     // 不带默认操作该msg_data_id的第一篇图文
     private Integer index;
 
     // 起始位置
     private Integer begin;
 
-    // 获取数目（>=50会被拒绝）
+    // 获取数目(>=50会被拒绝)
     private Integer count;
 
     // type=0 普通评论&精选评论

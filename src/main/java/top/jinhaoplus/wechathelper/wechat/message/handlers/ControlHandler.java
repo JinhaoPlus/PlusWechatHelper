@@ -2,7 +2,7 @@ package top.jinhaoplus.wechathelper.wechat.message.handlers;
 
 
 import org.apache.commons.lang3.StringUtils;
-import top.jinhaoplus.wechathelper.wechat.exception.WechatAPIException;
+import top.jinhaoplus.wechathelper.wechat.api.exception.WechatAPIException;
 import top.jinhaoplus.wechathelper.wechat.message.entity.passive.PassiveMessageType;
 import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveEventMessage;
 import top.jinhaoplus.wechathelper.wechat.message.entity.passive.receive.ReceiveMessage;

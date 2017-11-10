@@ -85,7 +85,7 @@ public class UserAPI extends ServiceAPI {
      *
      * @param accessToken accessToken
      * @param openIds     需要获取信息的用户的openId列表
-     * @param language    国家地区语言版本，zh_CN 简体，zh_TW 繁体，en 英语，设null则默认为zh-CN
+     * @param language    国家地区语言版本,zh_CN 简体,zh_TW 繁体,en 英语,设null则默认为zh-CN
      * @return
      */
     public static List<User> getBatchUsers(String accessToken, List<String> openIds, UserLanguage language) {

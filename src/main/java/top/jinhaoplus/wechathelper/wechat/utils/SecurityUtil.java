@@ -11,7 +11,7 @@ public class SecurityUtil {
             byte messageDigest[] = digest.digest();
             // Create Hex String
             StringBuffer hexString = new StringBuffer();
-            // 字节数组转换为十六进制数实现信息可视化（非“乱码”，而是规则的16进制字符）
+            // 字节数组转换为十六进制数实现信息可视化(非"乱码",而是规则的16进制字符)
             for (int i = 0; i < messageDigest.length; i++) {
                 String shaHex = Integer.toHexString(messageDigest[i] & 0xFF);
                 if (shaHex.length() < 2) {

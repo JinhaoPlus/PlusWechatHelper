@@ -84,8 +84,8 @@ public class JsonUtil {
     public static ObjectMapper getMapper() {
         ObjectMapper oMapper = new ObjectMapper();
         oMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-        oMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//确定是否遇到未知属性（不映射到属性的属性，并且没有“任何设置者”或处理程序可以处理它）
-        oMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);//可以启用允许JSON空字符串值（“”）绑定到POJO的功能
+        oMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//确定是否遇到未知属性(不映射到属性的属性,并且没有"任何设置者"或处理程序可以处理它)
+        oMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);//可以启用允许JSON空字符串值("")绑定到POJO的功能
         return oMapper;
     }
 

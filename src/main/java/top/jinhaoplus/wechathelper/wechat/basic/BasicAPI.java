@@ -5,7 +5,7 @@ import top.jinhaoplus.wechathelper.wechat.api.ApiMethod;
 import top.jinhaoplus.wechathelper.wechat.api.ServiceAPI;
 import top.jinhaoplus.wechathelper.wechat.basic.response.AccessTokenResponse;
 import top.jinhaoplus.wechathelper.wechat.basic.response.IPListResponse;
-import top.jinhaoplus.wechathelper.wechat.exception.WechatAPIException;
+import top.jinhaoplus.wechathelper.wechat.api.exception.WechatAPIException;
 import top.jinhaoplus.wechathelper.wechat.utils.SecurityUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +49,7 @@ public class BasicAPI extends ServiceAPI {
      *
      * @return accessToken实体
      */
-    private static AccessTokenResponse getRefreshAccessToken() {
+    static AccessTokenResponse getRefreshAccessToken() {
         String url = formatUrl(wechatProperties.getProperty("url.basic.accesstoken"), new String[]{appId, appSecret});
         AccessTokenResponse accessTokenResponse = invokeAPI(url, ApiMethod.GET, AccessTokenResponse.class, null);
         return accessTokenResponse;

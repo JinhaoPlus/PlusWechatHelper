@@ -1,6 +1,6 @@
 package top.jinhaoplus.wechathelper.wechat.general.entity;
 
-import top.jinhaoplus.wechathelper.wechat.exception.WechatAPIException;
+import top.jinhaoplus.wechathelper.wechat.api.exception.WechatAPIException;
 
 import java.util.Map;
 

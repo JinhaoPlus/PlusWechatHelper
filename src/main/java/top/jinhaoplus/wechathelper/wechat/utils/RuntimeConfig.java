@@ -23,7 +23,7 @@ public class RuntimeConfig {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("读取" + pFileName + "出错, 原因：" + e.getMessage(), e);
+            throw new RuntimeException("读取" + pFileName + "出错, 原因:" + e.getMessage(), e);
         } finally {
             try {
                 if (inputStream != null) {
@@ -43,11 +43,11 @@ public class RuntimeConfig {
         OutputStream outputStream = null;
         try {
             outputStream = new FileOutputStream(getClass().getClassLoader().getResource(pFileName).getFile());
-            // 保存，并加入注释
+            // 保存,并加入注释
             internalProperties.setProperty(key, value);
             internalProperties.store(outputStream, "Update Runtime Configs at");
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("读取" + pFileName + "出错, 原因：" + e.getMessage(), e);
+            throw new RuntimeException("读取" + pFileName + "出错, 原因:" + e.getMessage(), e);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -59,13 +59,5 @@ public class RuntimeConfig {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        RuntimeConfig config = new RuntimeConfig("wechat.properties");
-        System.out.println(config.getProperty("service.appid"));
-        RuntimeConfig config1 = new RuntimeConfig("runtime.properties");
-        config1.setProperty("accesstoken", "333");
-        System.out.println(config1.getProperty("accesstoken"));
     }
 }
