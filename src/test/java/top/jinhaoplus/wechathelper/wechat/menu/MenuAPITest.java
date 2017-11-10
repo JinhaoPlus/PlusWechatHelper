@@ -67,7 +67,7 @@ public class MenuAPITest {
             }});
             add(button1);
 
-            MenuButton button2 = new MenuButton("图文", "TfyMrCu3iSoUpqscSAt-3R6voD65VvmaOC3waBLFbn8");
+            MenuButton button2 = new MenuButton("可评论图文", "TfyMrCu3iSoUpqscSAt-3RD1hRYe5RYywMtmHsNVQC8");
             add(button2);
 
             MenuButton button3 = new MenuButton("发图");

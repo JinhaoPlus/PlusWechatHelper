@@ -71,32 +71,39 @@ public class MediaAPITest {
     public void addNews() throws Exception {
         NewsAddRequest request = new NewsAddRequest();
         Article article1 = new Article();
-        article1.setTitle("测试标题1");
-        article1.setAuthor("测试作者1");
-        article1.setContent("测试内容1");
+        article1.setTitle("C测试标题1");
+        article1.setAuthor("C测试作者1");
+        article1.setContent("C测试内容1");
         article1.setContent_source_url("http://www.baidu.com");
-        article1.setDigest("测试摘要1");
+        article1.setDigest("C测试摘要1");
         article1.setShow_cover_pic(1);
         article1.setThumb_media_id("");
-        Article article2 = new Article();
-        article2.setTitle("测试标题2");
-        article2.setAuthor("测试作者2");
-        article2.setContent("测试内容2");
-        article2.setContent_source_url("http://www.baidu.com");
-        article2.setDigest("测试摘要2");
-        article2.setShow_cover_pic(1);
-        article2.setThumb_media_id("TfyMrCu3iSoUpqscSAt-3XGCmmuanPsBs_qD1vEt1kk");
-        Article article3 = new Article();
-        article3.setTitle("测试标题3");
-        article3.setAuthor("测试作者3");
-        article3.setContent("测试内容3");
-        article3.setContent_source_url("http://www.baidu.com");
-        article3.setDigest("测试摘要3");
-        article3.setShow_cover_pic(0);
-        article3.setThumb_media_id("TfyMrCu3iSoUpqscSAt-3XGCmmuanPsBs_qD1vEt1kk");
+        article1.setNeed_open_comment(1);
+        article1.setOnly_fans_can_comment(1);
+        article1.setThumb_media_id("TfyMrCu3iSoUpqscSAt-3VZfZRamwWgm-vqtMwZVdHM");
+//        Article article2 = new Article();
+//        article2.setTitle("测试标题2");
+//        article2.setAuthor("测试作者2");
+//        article2.setContent("测试内容2");
+//        article2.setContent_source_url("http://www.baidu.com");
+//        article2.setDigest("测试摘要2");
+//        article2.setShow_cover_pic(1);
+//        article2.setNeed_open_comment(1);
+//        article2.setOnly_fans_can_comment(1);
+//        article2.setThumb_media_id("TfyMrCu3iSoUpqscSAt-3VZfZRamwWgm-vqtMwZVdHM");
+//        Article article3 = new Article();
+//        article3.setTitle("测试标题3");
+//        article3.setAuthor("测试作者3");
+//        article3.setContent("测试内容3");
+//        article3.setContent_source_url("http://www.baidu.com");
+//        article3.setDigest("测试摘要3");
+//        article3.setShow_cover_pic(0);
+//        article3.setNeed_open_comment(1);
+//        article3.setOnly_fans_can_comment(1);
+//        article3.setThumb_media_id("TfyMrCu3iSoUpqscSAt-3VZfZRamwWgm-vqtMwZVdHM");
         request.getArticles().add(article1);
-        request.getArticles().add(article2);
-        request.getArticles().add(article3);
+//        request.getArticles().add(article2);
+//        request.getArticles().add(article3);
         NewsAddResponse response = MediaAPI.addNews(BasicAPI.getAccessTokenStr(), request);
         System.out.println(response.getMedia_id());
     }
@@ -115,7 +122,7 @@ public class MediaAPITest {
 
     @Test
     public void getNews() throws Exception {
-        NewsGetResponse response = MediaAPI.getNews(BasicAPI.getAccessTokenStr(), "TfyMrCu3iSoUpqscSAt-3R6voD65VvmaOC3waBLFbn8");
+        NewsGetResponse response = MediaAPI.getNews(BasicAPI.getAccessTokenStr(), "TfyMrCu3iSoUpqscSAt-3fWEDqzlRFu5XoJeorFODtY");
         System.out.println(response);
     }
 
